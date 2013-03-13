@@ -26,10 +26,6 @@ add_theme_support( 'automatic-feed-links' );
 // Enqueue CSS and scripts
 
 function load_cornerstone_scripts() {
-    // deregister WordPress built in jQuery
-    wp_deregister_script('jquery');
-    // register Google jQuery
-    wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", false, null, true);
 	wp_enqueue_script(
 		'foundation_modernizr_js',
 		get_template_directory_uri() . '/js/custom.modernizr.js',
