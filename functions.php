@@ -40,10 +40,6 @@ function load_cornerstone_scripts() {
 		false,
 		true
 	);
-
-	// Load Stylesheets
-	wp_enqueue_style( 'foundation_normalize_css', get_template_directory_uri().'/css/normalize.css' );
-	wp_enqueue_style( 'foundation_css', get_template_directory_uri().'/css/foundation.min.css' );
 }    
 
 add_action('wp_enqueue_scripts', 'load_cornerstone_scripts');
