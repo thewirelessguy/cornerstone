@@ -1,21 +1,13 @@
-	<!-- Footer -->
+<div id="footer">
 	<footer class="row">
-	
-		<div class="large-12 columns"><hr></div>
-	
-			<div class="row">
-			
-					<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Sidebar')) : ?>
-					<h4>Hey! You!</h4>
-					<p>You should like, so test out this dynamic footer sidebar. Check it out in Appearance > Widgets!</p>
-					<?php endif; ?>
-				
-			</div>
-	
+		<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Sidebar')) : ?>
+		<h4>Hey! You!</h4>
+		<p>You should like, so test out this dynamic footer sidebar. Check it out in Appearance > Widgets!</p>
+		<?php endif; ?>	
 	</footer>
-	<!-- Footer -->
+</div>
 
-	<?php wp_footer(); ?>
+<?php wp_footer(); ?>
 
 <script>
 jQuery(document).foundation();
