@@ -5,6 +5,8 @@ Cornerstone is a WordPress starter theme based on the Zurb Foundation Responsive
 
 This version of Cornerstone is based on [ZURB Foundation 4](http://foundation.zurb.com/). Foundation 4 removes support for IE8. For a version of Cornerstone based on Foundation 3 go to https://github.com/thewirelessguy/cornerstone-foundation3
 
+Cornerstone is not meant to be used as is. This theme is designed to be used as a parent theme to create a Child Theme from. If you’re unsure how to do this follow the guide at (http://codex.wordpress.org/Child_Themes). You can download an example Child Theme at (https://github.com/thewirelessguy/cornerstone-child-theme)
+
 
 ## Download
 
