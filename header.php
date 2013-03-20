@@ -15,11 +15,6 @@
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 	
-	<!-- IE Fix for HTML5 Tags -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
 	<?php wp_head(); ?>
 
 </head>
