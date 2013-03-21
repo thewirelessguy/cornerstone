@@ -31,34 +31,38 @@
   </ul>
 
   <section class="top-bar-section">
-    <!-- Left Nav Section -->
     <?php
+      // Left Nav Section
+      if ( has_nav_menu( 'header-menu-left' ) ) {
           wp_nav_menu( array(
               'theme_location' => 'header-menu-left',
               'container' => false,
               'depth' => 0,
               'items_wrap' => '<ul class="left">%3$s</ul>',
-              'fallback_cb' => 'cornerstone_menu_fallback', // workaround to show a message to set up a menu
+              'fallback_cb' => false,
               'walker' => new cornerstone_walker( array(
                   'in_top_bar' => true,
                   'item_type' => 'li'
               ) ),
           ) );
+        }
       ?>
 
-    <!-- Right Nav Section -->
     <?php
+      //Right Nav Section
+      if ( has_nav_menu( 'header-menu-right' ) ) {
           wp_nav_menu( array(
               'theme_location' => 'header-menu-right',
               'container' => false,
               'depth' => 0,
               'items_wrap' => '<ul class="right">%3$s</ul>',
-              'fallback_cb' => 'cornerstone_menu_fallback', // workaround to show a message to set up a menu
+              'fallback_cb' => false,
               'walker' => new cornerstone_walker( array(
                   'in_top_bar' => true,
                   'item_type' => 'li'
               ) ),
           ) );
+        }
       ?>
   </section>
 </nav>

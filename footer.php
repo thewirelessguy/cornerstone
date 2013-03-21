@@ -1,9 +1,12 @@
 <div id="footer">
 	<footer class="row">
 		<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Sidebar')) : ?>
-		<h4>Hey! You!</h4>
-		<p>You should like, so test out this dynamic footer sidebar. Check it out in Appearance > Widgets!</p>
-		<?php endif; ?>	
+		<?php endif; ?>
+		<?php if ( has_nav_menu( 'footer-menu' ) ) {
+			echo '<div class="row">';
+			wp_nav_menu( array( 'theme_location' => 'footer-menu', 'footer-menu_class' => 'footer-nav-bar', 'container' => 'nav', 'container_class' => 'large-12 columns' ) );
+			echo '<div>';
+		} ?> 
 	</footer>
 </div>
 

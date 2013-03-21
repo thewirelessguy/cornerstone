@@ -2,24 +2,6 @@
 
 // Foundation Framwork specific functions
 
-/**
- * A fallback when no navigation is selected by default, otherwise it throws some nasty errors in your face.
- * From required+ Foundation http://themes.required.ch
- */
-function cornerstone_menu_fallback() {
-	echo '<div class="alert-box secondary">';
-	// Translators 1: Link to Menus, 2: Link to Customize
-  	printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'cornerstone' ),
-  		sprintf(  __( '<a href="%s">Menus</a>', 'cornerstone' ),
-  			get_admin_url( get_current_blog_id(), 'nav-menus.php' )
-  		),
-  		sprintf(  __( '<a href="%s">Customize</a>', 'cornerstone' ),
-  			get_admin_url( get_current_blog_id(), 'customize.php' )
-  		)
-  	);
-  	echo '</div>';
-}
-
 // Add Foundation 'active' class for the current menu item
 function cornerstone_active_nav_class( $classes, $item ) {
     if ( $item->current == 1 || $item->current_item_ancestor == true ) {

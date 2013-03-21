@@ -59,8 +59,9 @@ function cornerstone_menus() {
 
 	register_nav_menus(
 		array(
-			'header-menu-left' => __( 'Header Menu (left)', 'foundation' ),
-			'header-menu-right' => __( 'Header Menu (right)', 'foundation' )
+			'header-menu-left' => __( 'Header Menu (left)', 'cornerstone' ),
+			'header-menu-right' => __( 'Header Menu (right)', 'cornerstone' ),
+			'footer-menu' => __( 'Footer Menu', 'cornerstone' )
 		)
 	);
 	
