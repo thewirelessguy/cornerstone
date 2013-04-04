@@ -168,8 +168,9 @@ function SliderContent(){
 		
 			if(has_post_thumbnail()) {
 			
+				$orbitimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail_size' );
 				echo '<li>';
-				the_post_thumbnail();
+				echo '<img src="'. $orbitimage['0'] . '" alt="" />';
 				echo '</li>';
 				
 			} else {
