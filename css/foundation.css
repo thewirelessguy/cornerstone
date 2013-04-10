@@ -2440,7 +2440,7 @@ form.custom {
       background: #c60f13; }
       .top-bar-section ul li > a.button.alert:hover {
         background: #970b0e; }
-  .top-bar-section ul li.active a {
+  .top-bar-section ul li.active > a {
     background: #2b2b2b; }
   .top-bar-section .has-form {
     padding: 15px; }
@@ -2909,6 +2909,23 @@ form.custom {
   top: 0;
   left: 0;
   cursor: pointer; }
+
+.joyride-expose-wrapper {
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 3px;
+  z-index: 102;
+  -moz-box-shadow: 0px 0px 30px white;
+  -webkit-box-shadow: 0px 0px 15px white;
+  box-shadow: 0px 0px 15px white; }
+
+.joyride-expose-cover {
+  background: transparent;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 9999;
+  top: 0px;
+  left: 0px; }
 
 /* Styles for screens that are atleast 768px; */
 @media only screen and (min-width: 48em) {
