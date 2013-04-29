@@ -36,7 +36,7 @@ function load_cornerstone_scripts() {
 	wp_enqueue_script(
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
-		array(),
+		array('jquery'),
 		false,
 		true
 	);
