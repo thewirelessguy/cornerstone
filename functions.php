@@ -30,14 +30,14 @@ function load_cornerstone_scripts() {
 		'foundation_modernizr_js',
 		get_template_directory_uri() . '/js/custom.modernizr.js',
 		array(),
-		false,
+		'2.6.2',
 		false
 	);
 	wp_enqueue_script(
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
 		array('jquery'),
-		false,
+		'4.1.5',
 		true
 	);
 }    
