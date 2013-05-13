@@ -23,27 +23,40 @@ include('inc/shortcodes.php');
 
 add_theme_support( 'automatic-feed-links' );
 
-// Enqueue CSS and scripts
+// Enqueue JavaScripts & Stylesheets
 
 function load_cornerstone_scripts() {
 	wp_enqueue_script(
 		'foundation_modernizr_js',
 		get_template_directory_uri() . '/js/custom.modernizr.js',
 		array(),
-		false,
+		'2.6.2',
 		false
 	);
 	wp_enqueue_script(
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
-		array(),
-		false,
+		array('jquery'),
+		'4.1.5',
 		true
 	);
-}    
+	wp_enqueue_style(
+		'normalize',
+		get_template_directory_uri() . '/css/normalize.css',
+		array(),
+		'2.1.1',
+		'all'
+	);
+	wp_enqueue_style(
+		'foundation_css',
+		get_template_directory_uri() . '/css/foundation.min.css',
+		array('normalize'),
+		'4.1.3',
+		'all'
+	);
+}
 
 add_action('wp_enqueue_scripts', 'load_cornerstone_scripts');
-
 
 // load Foundation specific functions
 
