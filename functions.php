@@ -3,9 +3,12 @@
 // Disable WordPress version reporting as a basic protection against attacks
 function remove_generators() {
 	return '';
-}		
+}
 
 add_filter('the_generator','remove_generators');
+
+// This theme supports a variety of post formats.
+add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
 // Add thumbnail support
 
@@ -30,17 +33,17 @@ function load_cornerstone_scripts() {
 		'foundation_modernizr_js',
 		get_template_directory_uri() . '/js/custom.modernizr.js',
 		array(),
-		false,
+		'2.6.2',
 		false
 	);
 	wp_enqueue_script(
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
-		array(),
-		false,
+		array('jquery'),
+		'4.1.6',
 		true
 	);
-}    
+}
 
 add_action('wp_enqueue_scripts', 'load_cornerstone_scripts');
 
@@ -64,7 +67,7 @@ function cornerstone_menus() {
 			'footer-menu' => __( 'Footer Menu', 'cornerstone' )
 		)
 	);
-	
+
 }
 add_action( 'init', 'cornerstone_menus' );
 
@@ -83,9 +86,9 @@ if (function_exists('register_sidebar')) {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 	// Footer Sidebar
-	
+
 	register_sidebar(array(
 		'name'=> 'Footer Sidebar',
 		'id' => 'footer_sidebar',
