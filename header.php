@@ -6,16 +6,13 @@
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	
+
 	<!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
-	
+
 	<title><?php wp_title(''); ?></title>
-  
-	<!-- Included CSS Files -->
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
-	
-	<?php wp_head(); ?>
+
+  <?php wp_head(); ?>
 
 </head>
 
