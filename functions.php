@@ -29,6 +29,7 @@ add_theme_support( 'automatic-feed-links' );
 // Enqueue CSS and scripts
 
 function load_cornerstone_scripts() {
+	global $wp_styles;
 	wp_enqueue_style(
 		'normalize',
 		get_template_directory_uri() . '/css/normalize.css',
@@ -43,6 +44,14 @@ function load_cornerstone_scripts() {
 		'4.1.6',
 		'all'
 	);
+	wp_enqueue_style(
+		'foundation_ie8_grid',
+		get_template_directory_uri() . '/css/ie8-grid-foundation-4.css',
+		array( 'foundation_css' ),
+		'1.0',
+		'all'
+	);
+	$wp_styles->add_data( 'foundation_ie8_grid', 'conditional', 'lt IE 8' );
 	wp_enqueue_script(
 		'foundation_modernizr_js',
 		get_template_directory_uri() . '/js/custom.modernizr.js',
