@@ -16,7 +16,14 @@ add_theme_support( 'post-thumbnails' );
 
 // Disable the admin bar, set to true if you want it to be visible.
 
-show_admin_bar(FALSE);
+function cornerstone_show_admin_bar() {
+	if( wp_is_mobile() ) {
+		return false;
+	} else {
+		return false;
+	}
+}
+add_action( 'show_admin_bar' , 'cornerstone_show_admin_bar');
 
 // Shortcodes
 
