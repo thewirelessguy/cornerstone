@@ -6,7 +6,6 @@
 		<?php dynamic_sidebar( 'right_sidebar' ); ?>
 
 	<?php endif; ?>
-						
 
 </div>
 <!-- sidebar -->

@@ -4,9 +4,6 @@
 <div class="row">
 <div class="large-8 columns">
 
-<!-- Skip Nav -->
-<a id="content"></a>
-	
 	<!-- Start the Loop -->	
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	
@@ -20,7 +17,7 @@
 			<?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?>
 			
 			<!-- Display the Post's Content in a div box. -->
-			<div class="entry">
+			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>
 			
