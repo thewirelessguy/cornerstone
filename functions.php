@@ -14,13 +14,13 @@ add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'st
 
 add_theme_support( 'post-thumbnails' );
 
-// Disable the admin bar, set to true if you want it to be visible.
+// Disable the admin bar on mobiles.
 
 function cornerstone_show_admin_bar() {
 	if( wp_is_mobile() ) {
 		return false;
 	} else {
-		return false;
+		return true;
 	}
 }
 add_action( 'show_admin_bar' , 'cornerstone_show_admin_bar');
