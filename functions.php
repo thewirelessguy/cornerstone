@@ -17,7 +17,7 @@ add_theme_support( 'post-thumbnails' );
 // Disable the admin bar on mobiles.
 
 function cornerstone_show_admin_bar() {
-	if( wp_is_mobile() ) {
+	if( wp_is_mobile() || !is_user_logged_in() ) {
 		return false;
 	} else {
 		return true;
