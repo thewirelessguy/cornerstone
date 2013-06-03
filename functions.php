@@ -4,33 +4,22 @@
 function remove_generators() {
 	return '';
 }
-
 add_filter('the_generator','remove_generators');
 
 // This theme supports a variety of post formats.
 add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
 // Add thumbnail support
-
 add_theme_support( 'post-thumbnails' );
 
-// Disable the admin bar on mobiles.
+// Disable the admin bar, set to true if you want it to be visible.
+show_admin_bar(FALSE);
 
-function cornerstone_show_admin_bar() {
-	if( wp_is_mobile() || !is_user_logged_in() ) {
-		return false;
-	} else {
-		return true;
-	}
-}
-add_action( 'show_admin_bar' , 'cornerstone_show_admin_bar');
 
 // Shortcodes
-
 include('inc/shortcodes.php');
 
 // Add theme support for Automatic Feed Links
-
 add_theme_support( 'automatic-feed-links' );
 
 // Enqueue CSS and scripts
@@ -80,7 +69,6 @@ add_action('wp_enqueue_scripts', 'load_cornerstone_scripts',0);
 
 
 // load Foundation specific functions
-
 require_once('inc/foundation.php');
 
 
