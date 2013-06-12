@@ -1,29 +1,20 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The Template for displaying all single posts.
+ *
+ * @package WordPress
+ * @subpackage Cornerstone
+ * @since Cornerstone 1.0
+ */
 
-<!-- Main Row -->
+get_header(); ?>
+
 <div class="row">
-	<div class="large-8 columns" role="main">
+	<div id="content" class="large-8 columns" role="main">
 
 		<?php while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-
-					<div class="entry-meta">
-						<?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?>
-					</div>
-				</header>
-
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
-
-				<footer class="entry-meta">
-					Posted in <?php the_category(', '); ?>
-				</footer>
-
-			</article>
+			<?php get_template_part( 'content', get_post_format() ); ?>
 
 		    <?php comments_template( '', true ); ?>
 

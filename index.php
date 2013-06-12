@@ -1,56 +1,72 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * For example, it puts together the home page when no home.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Cornerstone
+ * @since Cornerstone 1.0
+ */
 
-<!-- Main Row -->
+get_header(); ?>
+
 <div class="row">
-<div class="large-8 columns">
+	<div id="content" class="large-8 columns" role="main">
 
-	<!-- Start the Loop -->	
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	
-		<!-- Begin the first article -->
-		<article>
-				
-			<!-- Display the Title as a link to the Post's permalink. -->
-			<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-			
-			<!-- Display the date (November 16th, 2009 format) and a link to other posts by this posts author. -->
-			<?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?>
-			
-			<!-- Display the Post's Content in a div box. -->
-			<div class="entry-content">
-				<?php the_content(); ?>
-			</div>
-			
-			<!-- Display a comma separated list of the Post's Categories. -->
-			<p class="postmetadata">Posted in <?php the_category(', '); ?></p>
-			
-	        <span class="comment-count"><?php comments_popup_link('Leave a comment', '1 Comment', '% Comments'); ?></span>  
-		
-		</article>
-		<hr>
-		<!-- Closes the first article -->
-	
-	<!-- Stop The Loop (but note the "else:" - see next line). -->
-	<?php endwhile; else: ?>
-	
-		<!-- The very first "if" tested to see if there were any Posts to -->
-		<!-- display.  This "else" part tells what do if there weren't any. -->
-		<p>Sorry, no posts matched your criteria.</p>
-	
-	<!--End the loop -->
-	<?php endif; ?>
-	
-	<!-- Begin Pagination -->
-	<?php if (function_exists("emm_paginate")) {
-	    emm_paginate();
-	} ?>	        	
-	<!-- End Pagination -->
+		<?php if ( have_posts() ) : ?>
+
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php endwhile; ?>
+
+		<?php else : ?>
+
+			<article id="post-0" class="post no-results not-found">
+
+			<?php if ( current_user_can( 'edit_posts' ) ) :
+				// Show a different message to a logged-in user who can add posts.
+			?>
+				<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'No posts to display', 'cornerstone' ); ?></h1>
+				</header>
+
+				<div class="entry-content">
+					<p><?php printf( __( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'cornerstone' ), admin_url( 'post-new.php' ) ); ?></p>
+				</div>
+
+			<?php else :
+				// Show the default message to everyone else.
+			?>
+				<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'Nothing Found', 'cornerstone' ); ?></h1>
+				</header>
+
+				<div class="entry-content">
+					<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'cornerstone' ); ?></p>
+					<?php get_search_form(); ?>
+				</div>
+			<?php endif; // end current_user_can() check ?>
+
+			</article>
+
+		<?php endif; ?>
+
+		<?php // Pagination
+			if (function_exists("emm_paginate")) {
+		    emm_paginate();
+		} ?>
+
+	</div>
+
+	<?php get_sidebar(); ?>
 
 </div>
-
-<?php get_sidebar(); ?>
-		
-</div>
-<!-- Main Row -->
 
 <?php get_footer(); ?>

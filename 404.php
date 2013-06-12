@@ -1,20 +1,30 @@
-<?php get_header(); ?>
-	
-<!-- Main Row -->
-<div class="row">
-	<div class="large-12 columns centered">
-	<div class="alert-box error">404!</div>
-	<h1>!@!#@$@@!!</h1>  
-	<p>404's are such a lovely thing. But you know, I'm not going to leave you stranded.</p>
-	<p>Why don't you try a search?</p>
-	
-	<?php get_search_form(); ?>
-	
-	<a href="<?php echo home_url( '/' ); ?>">&larr; Go Home?</a>
+<?php
+/**
+ * The template for displaying 404 pages (Not Found).
+ *
+ * @package WordPress
+ * @subpackage Cornerstone
+ * @since Cornerstone 1.0
+ */
 
-<?php get_sidebar(); ?>
+get_header(); ?>
 
+<div id="row">
+	<div id="content" class="large-12 columns" role="main">
+		<article id="post-0" class="post error404 no-results not-found">
+
+			<header class="entry-header">
+				<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'cornerstone' ); ?></h1>
+			</header>
+
+			<div class="entry-content">
+				<div data-alert class="alert-box">404!</div>
+				<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwelve' ); ?></p>
+				<?php get_search_form(); ?>
+			</div>
+
+		</article>
+	</div>
 </div>
-<!-- Main Row -->
-	
+
 <?php get_footer(); ?>

@@ -37,7 +37,7 @@ function load_cornerstone_scripts() {
 		'foundation_css',
 		get_template_directory_uri() . '/css/foundation.min.css',
 		array('normalize'),
-		'4.2.1',
+		'4.2.2',
 		'all'
 	);
 	wp_enqueue_style(
@@ -59,7 +59,7 @@ function load_cornerstone_scripts() {
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
 		array('jquery'),
-		'4.2.1',
+		'4.2.2',
 		true
 	);
 
@@ -190,17 +190,17 @@ function commenter_link() {
  *      automatically determine the value.
  * 'range' - Default is 3 (int). The number of page links to show before and after
  *      the current page.
- * 'gap' - Default is 3 (int). The minimum number of pages before a gap is 
+ * 'gap' - Default is 3 (int). The minimum number of pages before a gap is
  *      replaced with ellipses (...).
  * 'anchor' - Default is 1 (int). The number of links to always show at begining
  *      and end of pagination
- * 'before' - Default is '<div class="emm-paginate">' (string). The html or text 
+ * 'before' - Default is '<div class="emm-paginate">' (string). The html or text
  *      to add before the pagination links.
  * 'after' - Default is '</div>' (string). The html or text to add after the
  *      pagination links.
- * 'next_page' - Default is '__('&raquo;')' (string). The text to use for the 
+ * 'next_page' - Default is '__('&raquo;')' (string). The text to use for the
  *      next page link.
- * 'previous_page' - Default is '__('&laquo')' (string). The text to use for the 
+ * 'previous_page' - Default is '__('&laquo')' (string). The text to use for the
  *      previous page link.
  * 'echo' - Default is 1 (int). To return the code instead of echo'ing, set this
  *      to 0 (zero).
@@ -214,7 +214,7 @@ function commenter_link() {
  */
 function emm_paginate($args = null) {
 	$defaults = array(
-		'page' => null, 'pages' => null, 
+		'page' => null, 'pages' => null,
 		'range' => 3, 'gap' => 3, 'anchor' => 1,
 		'before' => '<ul class="pagination">', 'after' => '</ul>',
 		'title' => __('<li class="unavailable"></li>'),
@@ -234,16 +234,16 @@ function emm_paginate($args = null) {
 		$posts_per_page = intval(get_query_var('posts_per_page'));
 		$pages = intval(ceil($wp_query->found_posts / $posts_per_page));
 	}
-	
+
 	$output = "";
-	if ($pages > 1) {	
+	if ($pages > 1) {
 		$output .= "$before<li>$title</li>";
 		$ellipsis = "<li class='unavailable'>...</li>";
 
 		if ($page > 1 && !empty($previouspage)) {
 			$output .= "<li><a href='" . get_pagenum_link($page - 1) . "'>$previouspage</a></li>";
 		}
-		
+
 		$min_links = $range * 2 + 1;
 		$block_min = min($page - $range, $pages - $min_links);
 		$block_high = max($page + $range, $min_links);
@@ -251,23 +251,23 @@ function emm_paginate($args = null) {
 		$right_gap = (($block_high + $anchor + $gap) < $pages) ? true : false;
 
 		if ($left_gap && !$right_gap) {
-			$output .= sprintf('%s%s%s', 
-				emm_paginate_loop(1, $anchor), 
-				$ellipsis, 
+			$output .= sprintf('%s%s%s',
+				emm_paginate_loop(1, $anchor),
+				$ellipsis,
 				emm_paginate_loop($block_min, $pages, $page)
 			);
 		}
 		else if ($left_gap && $right_gap) {
-			$output .= sprintf('%s%s%s%s%s', 
-				emm_paginate_loop(1, $anchor), 
-				$ellipsis, 
-				emm_paginate_loop($block_min, $block_high, $page), 
-				$ellipsis, 
+			$output .= sprintf('%s%s%s%s%s',
+				emm_paginate_loop(1, $anchor),
+				$ellipsis,
+				emm_paginate_loop($block_min, $block_high, $page),
+				$ellipsis,
 				emm_paginate_loop(($pages - $anchor + 1), $pages)
 			);
 		}
 		else if ($right_gap && !$left_gap) {
-			$output .= sprintf('%s%s%s', 
+			$output .= sprintf('%s%s%s',
 				emm_paginate_loop(1, $block_high, $page),
 				$ellipsis,
 				emm_paginate_loop(($pages - $anchor + 1), $pages)
@@ -307,12 +307,57 @@ function emm_paginate($args = null) {
 function emm_paginate_loop($start, $max, $page = 0) {
 	$output = "";
 	for ($i = $start; $i <= $max; $i++) {
-		$output .= ($page === intval($i)) 
-			? "<li class='current'><a href='#'>$i</a></li>" 
+		$output .= ($page === intval($i))
+			? "<li class='current'><a href='#'>$i</a></li>"
 			: "<li><a href='" . get_pagenum_link($i) . "'>$i</a></li>";
 	}
 	return $output;
-} 
+}
 
+if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
+/**
+ * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
+ *
+ * Create your own cornerstone_entry_meta() to override in a child theme.
+ *
+ * @since Cornerstone 2.1.2
+ */
+function cornerstone_entry_meta() {
+	// Translators: used between list items, there is a space after the comma.
+	$categories_list = get_the_category_list( __( ', ', 'cornerstone' ) );
 
+	// Translators: used between list items, there is a space after the comma.
+	$tag_list = get_the_tag_list( '', __( ', ', 'cornerstone' ) );
+
+	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'cornerstone' ), get_the_author() ) ),
+		get_the_author()
+	);
+
+	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
+	if ( $tag_list ) {
+		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'cornerstone' );
+	} elseif ( $categories_list ) {
+		$utility_text = __( 'This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'cornerstone' );
+	} else {
+		$utility_text = __( 'This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'cornerstone' );
+	}
+
+	printf(
+		$utility_text,
+		$categories_list,
+		$tag_list,
+		$date,
+		$author
+	);
+}
+endif;
 ?>

@@ -1,7 +1,21 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package WordPress
+ * @subpackage Cornerstone
+ * @since Cornerstone 1.0
+ */
+
+get_header(); ?>
 
 <div class="row">
-	<div class="large-8 columns" role="main">
+	<div id="content" class="large-8 columns" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -15,7 +29,13 @@
 					<?php the_content(); ?>
 				</div>
 
+				<footer class="entry-meta">
+					<?php edit_post_link( __( 'Edit', 'cornerstone' ), '<span class="edit-link">', '</span>' ); ?>
+				</footer>
+
 			</article>
+
+			<?php comments_template( '', true ); ?>
 
 		<?php endwhile; ?>
 

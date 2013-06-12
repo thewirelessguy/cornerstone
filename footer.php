@@ -6,7 +6,7 @@
 			echo '<div class="row">';
 			wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_class' => 'inline-list', 'container' => 'nav', 'container_class' => 'large-12 columns' ) );
 			echo '<div>';
-		} ?> 
+		} ?>
 	</footer>
 </div>
 
