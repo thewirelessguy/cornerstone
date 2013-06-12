@@ -759,7 +759,7 @@ th.hide-for-touch {
   [class*="block-grid-"] {
     display: block;
     padding: 0;
-    margin: -0.625em;
+    margin: 0 -0.625em;
     *zoom: 1; }
     [class*="block-grid-"]:before, [class*="block-grid-"]:after {
       content: " ";
@@ -1130,7 +1130,7 @@ dl {
   font-family: inherit; }
 
 ul, ol {
-  margin-left: 1.25em; }
+  margin-left: 0; }
 
 /* Unordered Lists */
 ul li ul,
@@ -1439,16 +1439,20 @@ button, .button {
 
 button, .button {
   padding-top: 0.8125em;
-  padding-bottom: 0.75em; }
+  padding-bottom: 0.75em;
+  -webkit-appearance: none; }
   button.tiny, .button.tiny {
     padding-top: 0.5em;
-    padding-bottom: 0.4375em; }
+    padding-bottom: 0.4375em;
+    -webkit-appearance: none; }
   button.small, .button.small {
     padding-top: 0.625em;
-    padding-bottom: 0.5625em; }
+    padding-bottom: 0.5625em;
+    -webkit-appearance: none; }
   button.large, .button.large {
     padding-top: 1.03125em;
-    padding-bottom: 1.03125em; }
+    padding-bottom: 1.03125em;
+    -webkit-appearance: none; }
 
 @media only screen {
   button, .button {
@@ -2230,7 +2234,7 @@ form.custom {
         margin-bottom: 0; }
       .section-container > section .content > *:first-child, .section-container > .section .content > *:first-child, .section-container.auto > section .content > *:first-child, .section-container.auto > .section .content > *:first-child {
         padding-top: 0; }
-      .section-container > section .content > *:last-child, .section-container > .section .content > *:last-child, .section-container.auto > section .content > *:last-child, .section-container.auto > .section .content > *:last-child {
+      .section-container > section .content > *:last-child:not(.flex-video), .section-container > .section .content > *:last-child:not(.flex-video), .section-container.auto > section .content > *:last-child:not(.flex-video), .section-container.auto > .section .content > *:last-child:not(.flex-video) {
         padding-bottom: 0; }
     .section-container > section.active > .content, .section-container > .section.active > .content, .section-container.auto > section.active > .content, .section-container.auto > .section.active > .content {
       display: block; }
@@ -2272,7 +2276,7 @@ form.custom {
         margin-bottom: 0; }
       .section-container.tabs > section .content > *:first-child, .section-container.tabs > .section .content > *:first-child {
         padding-top: 0; }
-      .section-container.tabs > section .content > *:last-child, .section-container.tabs > .section .content > *:last-child {
+      .section-container.tabs > section .content > *:last-child:not(.flex-video), .section-container.tabs > .section .content > *:last-child:not(.flex-video) {
         padding-bottom: 0; }
     .section-container.tabs > section.active > .content, .section-container.tabs > .section.active > .content {
       display: block; }
@@ -2332,7 +2336,7 @@ form.custom {
           margin-bottom: 0; }
         .section-container.auto > section .content > *:first-child, .section-container.auto > .section .content > *:first-child {
           padding-top: 0; }
-        .section-container.auto > section .content > *:last-child, .section-container.auto > .section .content > *:last-child {
+        .section-container.auto > section .content > *:last-child:not(.flex-video), .section-container.auto > .section .content > *:last-child:not(.flex-video) {
           padding-bottom: 0; }
       .section-container.auto > section.active > .content, .section-container.auto > .section.active > .content {
         display: block; }
@@ -2402,8 +2406,8 @@ form.custom {
         .section-container.vertical-tabs section .content > *:first-child,
         .section-container.vertical-tabs .section .content > *:first-child {
           padding-top: 0; }
-        .section-container.vertical-tabs section .content > *:last-child,
-        .section-container.vertical-tabs .section .content > *:last-child {
+        .section-container.vertical-tabs section .content > *:last-child:not(.flex-video),
+        .section-container.vertical-tabs .section .content > *:last-child:not(.flex-video) {
           padding-bottom: 0; }
       .section-container.vertical-tabs section.active > .content,
       .section-container.vertical-tabs .section.active > .content {
@@ -2465,7 +2469,7 @@ form.custom {
           margin-bottom: 0; }
         .section-container.vertical-nav > section .content > *:first-child, .section-container.vertical-nav > .section .content > *:first-child {
           padding-top: 0; }
-        .section-container.vertical-nav > section .content > *:last-child, .section-container.vertical-nav > .section .content > *:last-child {
+        .section-container.vertical-nav > section .content > *:last-child:not(.flex-video), .section-container.vertical-nav > .section .content > *:last-child:not(.flex-video) {
           padding-bottom: 0; }
       .section-container.vertical-nav > section.active > .content, .section-container.vertical-nav > .section.active > .content {
         display: block; }
@@ -2520,7 +2524,7 @@ form.custom {
           margin-bottom: 0; }
         .section-container.horizontal-nav > section .content > *:first-child, .section-container.horizontal-nav > .section .content > *:first-child {
           padding-top: 0; }
-        .section-container.horizontal-nav > section .content > *:last-child, .section-container.horizontal-nav > .section .content > *:last-child {
+        .section-container.horizontal-nav > section .content > *:last-child:not(.flex-video), .section-container.horizontal-nav > .section .content > *:last-child:not(.flex-video) {
           padding-bottom: 0; }
       .section-container.horizontal-nav > section.active > .content, .section-container.horizontal-nav > .section.active > .content {
         display: block; }
@@ -2575,7 +2579,7 @@ form.custom {
         margin-bottom: 0; }
       .no-js .section-container.auto > section .content > *:first-child, .no-js .section-container.auto > .section .content > *:first-child, .no-js .section-container.accordion > section .content > *:first-child, .no-js .section-container.accordion > .section .content > *:first-child, .no-js .section-container.tabs > section .content > *:first-child, .no-js .section-container.tabs > .section .content > *:first-child, .no-js .section-container.vertical-tabs > section .content > *:first-child, .no-js .section-container.vertical-tabs > .section .content > *:first-child, .no-js .section-container.vertical-nav > section .content > *:first-child, .no-js .section-container.vertical-nav > .section .content > *:first-child, .no-js .section-container.horizontal-nav > section .content > *:first-child, .no-js .section-container.horizontal-nav > .section .content > *:first-child {
         padding-top: 0; }
-      .no-js .section-container.auto > section .content > *:last-child, .no-js .section-container.auto > .section .content > *:last-child, .no-js .section-container.accordion > section .content > *:last-child, .no-js .section-container.accordion > .section .content > *:last-child, .no-js .section-container.tabs > section .content > *:last-child, .no-js .section-container.tabs > .section .content > *:last-child, .no-js .section-container.vertical-tabs > section .content > *:last-child, .no-js .section-container.vertical-tabs > .section .content > *:last-child, .no-js .section-container.vertical-nav > section .content > *:last-child, .no-js .section-container.vertical-nav > .section .content > *:last-child, .no-js .section-container.horizontal-nav > section .content > *:last-child, .no-js .section-container.horizontal-nav > .section .content > *:last-child {
+      .no-js .section-container.auto > section .content > *:last-child:not(.flex-video), .no-js .section-container.auto > .section .content > *:last-child:not(.flex-video), .no-js .section-container.accordion > section .content > *:last-child:not(.flex-video), .no-js .section-container.accordion > .section .content > *:last-child:not(.flex-video), .no-js .section-container.tabs > section .content > *:last-child:not(.flex-video), .no-js .section-container.tabs > .section .content > *:last-child:not(.flex-video), .no-js .section-container.vertical-tabs > section .content > *:last-child:not(.flex-video), .no-js .section-container.vertical-tabs > .section .content > *:last-child:not(.flex-video), .no-js .section-container.vertical-nav > section .content > *:last-child:not(.flex-video), .no-js .section-container.vertical-nav > .section .content > *:last-child:not(.flex-video), .no-js .section-container.horizontal-nav > section .content > *:last-child:not(.flex-video), .no-js .section-container.horizontal-nav > .section .content > *:last-child:not(.flex-video) {
         padding-bottom: 0; }
     .no-js .section-container.auto > section.active > .content, .no-js .section-container.auto > .section.active > .content, .no-js .section-container.accordion > section.active > .content, .no-js .section-container.accordion > .section.active > .content, .no-js .section-container.tabs > section.active > .content, .no-js .section-container.tabs > .section.active > .content, .no-js .section-container.vertical-tabs > section.active > .content, .no-js .section-container.vertical-tabs > .section.active > .content, .no-js .section-container.vertical-nav > section.active > .content, .no-js .section-container.vertical-nav > .section.active > .content, .no-js .section-container.horizontal-nav > section.active > .content, .no-js .section-container.horizontal-nav > .section.active > .content {
       display: block; }
@@ -3352,6 +3356,7 @@ form.custom {
 [data-clearing] {
   *zoom: 1;
   margin-bottom: 0;
+  margin-left: 0;
   list-style: none; }
   [data-clearing]:before, [data-clearing]:after {
     content: " ";
@@ -3706,12 +3711,12 @@ kbd {
   margin-bottom: 1.25em;
   padding: 1.25em;
   background: #f2f2f2; }
-  .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
-    color: #333333; }
   .panel > :first-child {
     margin-top: 0; }
   .panel > :last-child {
     margin-bottom: 0; }
+  .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
+    color: #333333; }
   .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
     line-height: 1;
     margin-bottom: 0.625em; }
@@ -3726,12 +3731,12 @@ kbd {
     background: #2ba6cb;
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
-    .panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6, .panel.callout p {
-      color: white; }
     .panel.callout > :first-child {
       margin-top: 0; }
     .panel.callout > :last-child {
       margin-bottom: 0; }
+    .panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6, .panel.callout p {
+      color: white; }
     .panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6 {
       line-height: 1;
       margin-bottom: 0.625em; }
@@ -4169,6 +4174,7 @@ a.th {
   position: absolute;
   top: -9999px;
   list-style: none;
+  margin-left: 0;
   width: 100%;
   max-height: none;
   height: auto;
@@ -4227,6 +4233,7 @@ a.th {
     position: absolute;
     top: -9999px;
     list-style: none;
+    margin-left: 0;
     padding: 1.25em;
     width: 100%;
     height: auto;
