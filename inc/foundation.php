@@ -176,12 +176,11 @@ function SliderContent(){
 
 			} else {
 
-				echo '<div class="content">';
-
-					the_title();
-					the_content();
-
-				echo '</div>';
+				echo '<li><h2>';
+				the_title();
+				echo '</h2>';
+				the_content();
+				echo '</li>';
 
 			}
 
