@@ -14,13 +14,13 @@ function shortcode_row( $atts, $content = null ) {
 
 add_shortcode( 'row', 'shortcode_row' );
 
-// Columns [column][/column]
+// Columns [column span="3" center="true"][/column]
 
 function shortcode_column( $atts, $content = null ) {
 
   extract( shortcode_atts( array(
   	'center' => '',
-		'span' => '',
+		'span' => '',//Between 1 and 12
 		), $atts ) );
 
 	// Set the 'center' variable
@@ -28,7 +28,7 @@ function shortcode_column( $atts, $content = null ) {
 	$center = 'centered';
 	}
 
-	return '<div class="' . esc_attr($span) . ' columns ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
+	return '<div class="columns-' . esc_attr($span) . ' ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
 }
 
 add_shortcode( 'column', 'shortcode_column' );
