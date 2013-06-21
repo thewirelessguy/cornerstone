@@ -28,7 +28,7 @@ function shortcode_column( $atts, $content = null ) {
 	$center = 'centered';
 	}
 
-	return '<div class="large-' . esc_attr($span) . ' ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
+	return '<div class="large-' . esc_attr($span) . ' columns ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
 }
 
 add_shortcode( 'column', 'shortcode_column' );
