@@ -2734,9 +2734,6 @@ form.custom {
     font-size: 0.8125em;
     font-weight: bold;
     background: #222222; }
-    .top-bar-section ul li > a.hover {
-      background: #090909;
-      color: white; }
     .top-bar-section ul li > a.button {
       background: #2ba6cb;
       font-size: 0.8125em; }
@@ -2754,6 +2751,9 @@ form.custom {
       background: #c60f13; }
       .top-bar-section ul li > a.button.alert.hover {
         background: #970b0e; }
+  .top-bar-section ul li.hover > a {
+    background: #090909;
+    color: white; }
   .top-bar-section ul li.active > a {
     background: #090909;
     color: white; }
@@ -2917,7 +2917,16 @@ form.custom {
       left: auto;
       right: 0; }
       .top-bar-section ul.right li .dropdown li .dropdown {
-        right: 100%; } }
+        right: 100%; }
+
+  .no-js .top-bar-section ul li:hover > a {
+    background: #090909;
+    color: white; }
+  .no-js .top-bar-section ul li:active > a {
+    background: #090909;
+    color: white; }
+  .no-js .top-bar-section .has-dropdown:hover > .dropdown {
+    visibility: visible; } }
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0deg); }
@@ -3570,8 +3579,7 @@ form.custom {
     margin: 0;
     float: left;
     font-size: 0.6875em;
-    text-transform: uppercase;
-    color: #2ba6cb; }
+    text-transform: uppercase; }
     .breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
       text-decoration: underline; }
     .breadcrumbs > * a,
@@ -3665,41 +3673,43 @@ kbd {
     .inline-list > li > * {
       display: block; }
 
-/* Pagination */
-.pagination {
+/* Default Pagination */
+ul.pagination {
   display: block;
   height: 1.5em;
   margin-left: -0.3125em; }
-  .pagination li {
-    display: block;
-    float: left;
+  ul.pagination li {
     height: 1.5em;
     color: #222222;
     font-size: 0.875em;
     margin-left: 0.3125em; }
-    .pagination li a {
+    ul.pagination li a {
       display: block;
       padding: 0.0625em 0.4375em 0.0625em;
       color: #999999; }
-    .pagination li:hover a,
-    .pagination li a:focus {
+    ul.pagination li:hover a,
+    ul.pagination li a:focus {
       background: #e6e6e6; }
-    .pagination li.unavailable a {
+    ul.pagination li.unavailable a {
       cursor: default;
       color: #999999; }
-    .pagination li.unavailable:hover a, .pagination li.unavailable a:focus {
+    ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus {
       background: transparent; }
-    .pagination li.current a {
+    ul.pagination li.current a {
       background: #2ba6cb;
       color: white;
       font-weight: bold;
       cursor: default; }
-      .pagination li.current a:hover, .pagination li.current a:focus {
+      ul.pagination li.current a:hover, ul.pagination li.current a:focus {
         background: #2ba6cb; }
+  ul.pagination li {
+    float: left;
+    display: block; }
 
+/* Pagination centred wrapper */
 .pagination-centered {
   text-align: center; }
-  .pagination-centered ul > li {
+  .pagination-centered ul.pagination li {
     float: none;
     display: inline-block; }
 
@@ -3917,7 +3927,7 @@ kbd {
       -moz-appearance: none; }
       div.switch input:hover, div.switch input:focus {
         cursor: pointer; }
-    div.switch > span {
+    div.switch span:last-child {
       position: absolute;
       top: -1px;
       left: -1px;
@@ -3953,17 +3963,21 @@ kbd {
       left: auto; }
     div.switch span.custom {
       display: none !important; }
+    form.custom div.switch .hidden-field {
+      margin-left: auto;
+      position: absolute;
+      visibility: visible; }
     div.switch label {
       padding: 0 0.375em;
       line-height: 2.3em;
       font-size: 0.875em; }
-    div.switch input:first-of-type:checked ~ span {
+    div.switch input:first-of-type:checked ~ span:last-child {
       left: 100%;
       margin-left: -2.1875em; }
-    div.switch > span {
+    div.switch span:last-child {
       width: 2.25em;
       height: 2.25em; }
-    div.switch > span {
+    div.switch span:last-child {
       border-color: #b3b3b3;
       background: white;
       background: -moz-linear-gradient(top, white 0%, #f2f2f2 100%);
@@ -3971,7 +3985,7 @@ kbd {
       background: linear-gradient(to bottom, white 0%, #f2f2f2 100%);
       -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.07), 1000px 0 0 1000px #e1f5d1, -2px 0 10px 0 rgba(0, 0, 0, 0.07), -1000px 0 0 1000px whitesmoke;
       box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.07), 1000px 0 0 980px #e1f5d1, -2px 0 10px 0 rgba(0, 0, 0, 0.07), -1000px 0 0 1000px whitesmoke; }
-    div.switch:hover > span, div.switch:focus > span {
+    div.switch:hover span:last-child, div.switch:focus span:last-child {
       background: white;
       background: -moz-linear-gradient(top, white 0%, #e6e6e6 100%);
       background: -webkit-linear-gradient(top, white 0%, #e6e6e6 100%);
@@ -3984,10 +3998,10 @@ kbd {
         padding: 0 0.375em;
         line-height: 2.3em;
         font-size: 1.0625em; }
-      div.switch.large input:first-of-type:checked ~ span {
+      div.switch.large input:first-of-type:checked ~ span:last-child {
         left: 100%;
         margin-left: -2.6875em; }
-      div.switch.large > span {
+      div.switch.large span:last-child {
         width: 2.75em;
         height: 2.75em; }
     div.switch.small {
@@ -3996,10 +4010,10 @@ kbd {
         padding: 0 0.375em;
         line-height: 2.1em;
         font-size: 0.75em; }
-      div.switch.small input:first-of-type:checked ~ span {
+      div.switch.small input:first-of-type:checked ~ span:last-child {
         left: 100%;
         margin-left: -1.6875em; }
-      div.switch.small > span {
+      div.switch.small span:last-child {
         width: 1.75em;
         height: 1.75em; }
     div.switch.tiny {
@@ -4008,22 +4022,22 @@ kbd {
         padding: 0 0.375em;
         line-height: 1.9em;
         font-size: 0.6875em; }
-      div.switch.tiny input:first-of-type:checked ~ span {
+      div.switch.tiny input:first-of-type:checked ~ span:last-child {
         left: 100%;
         margin-left: -1.3125em; }
-      div.switch.tiny > span {
+      div.switch.tiny span:last-child {
         width: 1.375em;
         height: 1.375em; }
     div.switch.radius {
       -webkit-border-radius: 4px;
       border-radius: 4px; }
-      div.switch.radius > span {
+      div.switch.radius span:last-child {
         -webkit-border-radius: 3px;
         border-radius: 3px; }
     div.switch.round {
       -webkit-border-radius: 1000px;
       border-radius: 1000px; }
-      div.switch.round > span {
+      div.switch.round span:last-child {
         -webkit-border-radius: 999px;
         border-radius: 999px; }
       div.switch.round label {
