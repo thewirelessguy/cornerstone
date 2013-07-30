@@ -6,21 +6,33 @@
 
 add_filter('widget_text', 'do_shortcode');
 
-// Rows [row][/row]
+
+// Rows [row center="true/false" cols="#"][/row]
 
 function shortcode_row( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'center' => '',
+		'cols' => '',
+		), $atts ) );
+	if ($center == 'true') {
+	$center = 'large-centered';
+	}
+	if ($cols != '') {
+   return '<div class="large-' . esc_attr($cols) . ' ' . esc_attr($center) .' columns"><div class="row">' . do_shortcode($content) . '</div></div>';
+	} else {
    return '<div class="row">' . do_shortcode($content) . '</div>';
+	}
 }
 
 add_shortcode( 'row', 'shortcode_row' );
 
-// Columns [column][/column]
+// Columns [column center="true/false" cols="#"][/column]
 
 function shortcode_column( $atts, $content = null ) {
 
   extract( shortcode_atts( array(
   	'center' => '',
-		'span' => '',
+		'cols' => '',
 		), $atts ) );
 
 	// Set the 'center' variable
@@ -28,7 +40,7 @@ function shortcode_column( $atts, $content = null ) {
 	$center = 'centered';
 	}
 
-	return '<div class="' . esc_attr($span) . ' columns ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
+	return '<div class="' . esc_attr($cols) . ' columns ' . esc_attr($center) .'">' . do_shortcode($content) . '</div>';
 }
 
 add_shortcode( 'column', 'shortcode_column' );
