@@ -171,7 +171,7 @@ function SliderContent(){
 				$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
 				$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
 				echo '<li>';
-				echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
+				echo '<img src="'. $orbitimage['0'] . '" title="' . $orbitimagealttext . '" alt="' . $orbitimagealttext . '"/>';
 				echo '</li>';
 
 			} else {
