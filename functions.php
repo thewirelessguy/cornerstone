@@ -37,7 +37,7 @@ function load_cornerstone_scripts() {
 		'foundation_css',
 		get_template_directory_uri() . '/css/foundation.min.css',
 		array('normalize'),
-		'4.3.1',
+		'4.3.2',
 		'all'
 	);
 	wp_enqueue_style(
@@ -59,10 +59,16 @@ function load_cornerstone_scripts() {
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
 		array('jquery'),
-		'4.3.1',
+		'4.3.2',
 		true
 	);
-
+	wp_enqueue_script(
+		'foundation_init_js',
+		get_template_directory_uri() . '/js/foundation_init.js',
+		array('foundation_js'),
+		'1.0',
+		true
+	);
 }
 
 add_action('wp_enqueue_scripts', 'load_cornerstone_scripts',0);
