@@ -13,7 +13,6 @@
 	<title><?php wp_title(''); ?></title>
 
   <?php wp_head(); ?>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -21,7 +20,7 @@
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
-    	<div class="sitetitle"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
+    	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     </li>
     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
