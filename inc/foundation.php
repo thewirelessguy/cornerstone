@@ -144,17 +144,60 @@ add_action('init', 'Orbit');
 
 function Orbit(){
 	$Orbit_args = array(
-		'label'	=> __('Orbit'),
+		'label'	=> __('Orbit Slider'),
 		'singular_label' =>	__('Orbit'),
 		'public'	=>	true,
 		'show_ui'	=>	true,
 		'capability_type'	=>	'post',
 		'hierarchical'	=>	false,
 		'rewrite'	=>	true,
-		'supports'	=>	array('title', 'editor','page-attributes','thumbnail'),
+		'supports'	=>	array('title', 'editor','page-attributes','thumbnail','custom-fields'),
 		'taxonomies' => array('category','post_tag')
 		);
 		register_post_type('Orbit', $Orbit_args);
+}
+
+add_action( 'add_meta_boxes', 'orbit_meta_box_add' );
+function orbit_meta_box_add()
+{
+	add_meta_box( 'orbit-meta-box-id', 'Additional Orbit slider options', 'orbit_meta_box', 'Orbit', 'normal', 'high' );
+}
+
+function orbit_meta_box( $post )
+{
+	$values = get_post_custom( $post->ID );
+	$caption = isset( $values['_orbit_meta_box_caption_text'] ) ? esc_attr( $values['_orbit_meta_box_caption_text'][0] ) : '';
+	wp_nonce_field( 'orbit_meta_box_nonce', 'meta_box_nonce' );
+	?>
+	<p>
+		<label for="_orbit_meta_box_caption_text">Caption</label>
+		<textarea id="orbit_meta_box_caption_text" class="widefat" name="_orbit_meta_box_caption_text"><?php echo esc_attr( $caption ); ?></textarea>
+	</p>
+	<?php
+}
+
+add_action( 'save_post', 'orbit_meta_box_save' );
+function orbit_meta_box_save( $post_id )
+{
+	// Bail if we're doing an auto save
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	
+	// if our nonce isn't there, or we can't verify it, bail
+	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'orbit_meta_box_nonce' ) ) return;
+	
+	// if our current user can't edit this post, bail
+	if( !current_user_can( 'edit_post' ) ) return;
+	
+	// now we can actually save the data
+	$allowed = array( 
+		'a' => array( // on allow a tags
+			'href' => array() // and those anchords can only have href attribute
+		)
+	);
+	
+	// Probably a good idea to make sure your data is set
+	if( isset( $_POST['_orbit_meta_box_caption_text'] ) )
+		update_post_meta( $post_id, '_orbit_meta_box_caption_text', wp_kses( $_POST['_orbit_meta_box_caption_text'], $allowed ) );
 }
 
 function SliderContent(){
@@ -170,8 +213,10 @@ function SliderContent(){
 
 				$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
 				$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
+				$orbitcaption = get_post_meta(get_the_ID(), '_orbit_meta_box_caption_text', true );
 				echo '<li>';
 				echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
+				if($orbitcaption != '') {echo '<div class="orbit-caption">' . $orbitcaption . '</div>';}
 				echo '</li>';
 
 			} else {
