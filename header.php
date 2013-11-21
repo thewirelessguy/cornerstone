@@ -16,7 +16,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<nav class="top-bar">
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">

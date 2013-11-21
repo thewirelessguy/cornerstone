@@ -38,7 +38,7 @@ get_header();
 						_e( 'Archives', 'cornerstone' );
 					endif;
 				?></h1>
-			</header><!-- .archive-header -->
+			</header>
 
 			<?php
 			/* Start the Loop */
