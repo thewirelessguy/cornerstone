@@ -37,7 +37,7 @@ function load_cornerstone_scripts() {
 		'foundation_css',
 		get_template_directory_uri() . '/css/foundation.min.css',
 		array('normalize'),
-		'5.0.0',
+		'5.0.2',
 		'all'
 	);
 	wp_enqueue_style(
@@ -59,7 +59,7 @@ function load_cornerstone_scripts() {
 		'foundation_js',
 		get_template_directory_uri() . '/js/foundation.min.js',
 		array('jquery'),
-		'5.0.0',
+		'5.0.2',
 		true
 	);
 	wp_enqueue_script(
