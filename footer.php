@@ -5,7 +5,7 @@
 		<?php if ( has_nav_menu( 'footer-menu' ) ) {
 			echo '<div class="row">';
 			wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_class' => 'inline-list', 'container' => 'nav', 'container_class' => 'large-12 columns' ) );
-			echo '<div>';
+			echo '</div>';
 		} ?>
 	</footer>
 </div>
