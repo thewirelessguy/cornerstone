@@ -32,7 +32,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'normalize',
-				get_template_directory_uri() . '/css/normalize.css',
+			get_template_directory_uri() . '/css/normalize.css',
 			array(),
 			'2.1.2',
 			'all'
@@ -40,7 +40,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'foundation_css',
-				get_template_directory_uri() . '/css/foundation.min.css',
+			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
 			'5.0.2',
 			'all'
@@ -48,7 +48,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'foundation_ie8_grid',
-				get_template_directory_uri() . '/css/ie8-grid-foundation-4.css',
+			get_template_directory_uri() . '/css/ie8-grid-foundation-4.css',
 			array( 'foundation_css' ),
 			'1.0',
 			'all'
@@ -105,16 +105,18 @@ require_once('inc/foundation.php');
  */
 
 // Register wp_nav_menus
-function cornerstone_menus() {
+if ( ! function_exists( 'cornerstone_menus' ) ) {
+	function cornerstone_menus() {
 
-	register_nav_menus(
-		array(
-			'header-menu-left' => __( 'Header Menu (left)', 'cornerstone' ),
-			'header-menu-right' => __( 'Header Menu (right)', 'cornerstone' ),
-			'footer-menu' => __( 'Footer Menu', 'cornerstone' )
-		)
-	);
+		register_nav_menus(
+			array(
+				'header-menu-left' => __( 'Header Menu (left)', 'cornerstone' ),
+				'header-menu-right' => __( 'Header Menu (right)', 'cornerstone' ),
+				'footer-menu' => __( 'Footer Menu', 'cornerstone' )
+			)
+		);
 
+	}
 }
 add_action( 'init', 'cornerstone_menus' );
 

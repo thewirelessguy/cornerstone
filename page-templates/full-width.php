@@ -16,31 +16,33 @@
 
 get_header(); ?>
 
-<div id="primary" class="row site-content">
-	<div id="content" class="large-12 columns" role="main">
+<div class="row">
+	<div id="primary" class="site-content large-12 columns">
+		<div id="content" role="main">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<header class="entry-header">
-					<h1 class="entry-title"><?php the_title(); ?></h1>
-				</header>
+					<header class="entry-header">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</header>
 
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
 
-				<footer class="entry-meta">
-					<?php edit_post_link( __( 'Edit', 'cornerstone' ), '<span class="edit-link">', '</span>' ); ?>
-				</footer>
+					<footer class="entry-meta">
+						<?php edit_post_link( __( 'Edit', 'cornerstone' ), '<span class="edit-link">', '</span>' ); ?>
+					</footer>
 
-			</article>
+				</article>
 
-			<?php comments_template( '', true ); ?>
+				<?php comments_template( '', true ); ?>
 
-		<?php endwhile; ?>
+			<?php endwhile; ?>
 
+		</div>
 	</div>
 </div>
 

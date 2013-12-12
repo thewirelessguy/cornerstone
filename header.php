@@ -8,7 +8,7 @@
 	<meta charset="utf-8" />
 
 	<!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="viewport" content="initial-scale=1.0" />
 
 	<title><?php wp_title(''); ?></title>
 

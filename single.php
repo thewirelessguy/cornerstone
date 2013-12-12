@@ -10,16 +10,18 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="content" class="large-8 columns" role="main">
+	<div id="primary" class="site-content large-8 columns">
+		<div id="content" role="main">
 
-		<?php while (have_posts()) : the_post(); ?>
+			<?php while (have_posts()) : the_post(); ?>
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
 
-		    <?php comments_template( '', true ); ?>
+			    <?php comments_template( '', true ); ?>
 
-		<?php endwhile; ?>
+			<?php endwhile; ?>
 
+		</div>
 	</div>
 
 	<?php get_sidebar(); ?>

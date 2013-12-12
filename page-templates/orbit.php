@@ -11,9 +11,11 @@
 
 get_header(); ?>
 
-<div id="primary" class="row site-content">
-	<div id="content" class="large-8 columns large-centered" role="main">
-		<?php SliderContent(); ?>
+<div class="row">
+	<div id="primary" class="site-content large-8 columns large-centered">
+		<div id="content" role="main">
+			<?php SliderContent(); ?>
+		</div>
 	</div>
 </div>
 
