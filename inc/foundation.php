@@ -3,11 +3,13 @@
 // Foundation Framwork specific functions
 
 // Add Foundation 'active' class for the current menu item
-function cornerstone_active_nav_class( $classes, $item ) {
-    if ( $item->current == 1 || $item->current_item_ancestor == true ) {
-        $classes[] = 'active';
-    }
-    return $classes;
+if ( ! function_exists( 'cornerstone_active_nav_class' ) ) {
+	function cornerstone_active_nav_class( $classes, $item ) {
+	    if ( $item->current == 1 || $item->current_item_ancestor == true ) {
+	        $classes[] = 'active';
+	    }
+	    return $classes;
+	}
 }
 add_filter( 'nav_menu_css_class', 'cornerstone_active_nav_class', 10, 2 );
 
@@ -15,14 +17,16 @@ add_filter( 'nav_menu_css_class', 'cornerstone_active_nav_class', 10, 2 );
  * Use the active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch
  */
-function cornerstone_active_list_pages_class( $input ) {
+if ( ! function_exists( 'cornerstone_active_list_pages_class' ) ) {
+	function cornerstone_active_list_pages_class( $input ) {
 
-	$pattern = '/current_page_item/';
-    $replace = 'current_page_item active';
+		$pattern = '/current_page_item/';
+	    $replace = 'current_page_item active';
 
-    $output = preg_replace( $pattern, $replace, $input );
+	    $output = preg_replace( $pattern, $replace, $input );
 
-    return $output;
+	    return $output;
+	}
 }
 add_filter( 'wp_list_pages', 'cornerstone_active_list_pages_class', 10, 2 );
 
@@ -131,108 +135,117 @@ class cornerstone_walker extends Walker_Nav_Menu {
 }
 
 // Add a class to the wp_page_menu fallback
-function foundation_page_menu_class($ulclass) {
-	return preg_replace('/<ul>/', '<ul class="nav-bar">', $ulclass, 1);
+if ( ! function_exists( 'foundation_page_menu_class' ) ) {
+	function foundation_page_menu_class($ulclass) {
+		return preg_replace('/<ul>/', '<ul class="nav-bar">', $ulclass, 1);
+	}
 }
-
 add_filter('wp_page_menu','foundation_page_menu_class');
 
 
 // Orbit, for WordPress
-
 add_action('init', 'Orbit');
-
-function Orbit(){
-	$Orbit_args = array(
-		'label'	=> __('Orbit Slider'),
-		'singular_label' =>	__('Orbit'),
-		'public'	=>	true,
-		'show_ui'	=>	true,
-		'capability_type'	=>	'post',
-		'hierarchical'	=>	false,
-		'rewrite'	=>	true,
-		'supports'	=>	array('title', 'editor','page-attributes','thumbnail','custom-fields'),
-		'taxonomies' => array('category','post_tag')
-		);
-		register_post_type('Orbit', $Orbit_args);
+if ( ! function_exists( 'Orbit' ) ) {
+	function Orbit() {
+		$Orbit_args = array(
+			'label'	=> __('Orbit Slider'),
+			'singular_label' =>	__('Orbit'),
+			'public'	=>	true,
+			'show_ui'	=>	true,
+			'capability_type'	=>	'post',
+			'hierarchical'	=>	false,
+			'rewrite'	=>	true,
+			'supports'	=>	array('title', 'editor','page-attributes','thumbnail','custom-fields'),
+			'taxonomies' => array('category','post_tag')
+			);
+			register_post_type('Orbit', $Orbit_args);
+	}
 }
 
 add_action( 'add_meta_boxes', 'orbit_meta_box_add' );
-function orbit_meta_box_add()
-{
-	add_meta_box( 'orbit-meta-box-id', 'Additional Orbit slider options', 'orbit_meta_box', 'Orbit', 'normal', 'high' );
+if ( ! function_exists( 'orbit_meta_box_add' ) ) {
+	function orbit_meta_box_add() {
+		add_meta_box( 'orbit-meta-box-id', 'Additional Orbit slider options', 'orbit_meta_box', 'Orbit', 'normal', 'high' );
+	}
 }
 
-function orbit_meta_box( $post )
-{
-	$values = get_post_custom( $post->ID );
-	$caption = isset( $values['_orbit_meta_box_caption_text'] ) ? esc_attr( $values['_orbit_meta_box_caption_text'][0] ) : '';
-	wp_nonce_field( 'orbit_meta_box_nonce', 'meta_box_nonce' );
-	?>
-	<p>
-		<label for="_orbit_meta_box_caption_text">Caption</label>
-		<textarea id="orbit_meta_box_caption_text" class="widefat" name="_orbit_meta_box_caption_text"><?php echo esc_attr( $caption ); ?></textarea>
-	</p>
-	<?php
+if ( ! function_exists( 'orbit_meta_box' ) ) {
+	function orbit_meta_box( $post ) {
+		$values = get_post_custom( $post->ID );
+		$caption = isset( $values['_orbit_meta_box_caption_text'] ) ? esc_attr( $values['_orbit_meta_box_caption_text'][0] ) : '';
+		wp_nonce_field( 'orbit_meta_box_nonce', 'meta_box_nonce' );
+		?>
+		<p>
+			<label for="_orbit_meta_box_caption_text">Caption</label>
+			<textarea id="orbit_meta_box_caption_text" class="widefat" name="_orbit_meta_box_caption_text"><?php echo esc_attr( $caption ); ?></textarea>
+		</p>
+		<?php
+	}
 }
 
 add_action( 'save_post', 'orbit_meta_box_save' );
-function orbit_meta_box_save( $post_id )
-{
-	// Bail if we're doing an auto save
-	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	
-	// if our nonce isn't there, or we can't verify it, bail
-	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'orbit_meta_box_nonce' ) ) return;
-	
-	// if our current user can't edit this post, bail
-	if( !current_user_can( 'edit_post' ) ) return;
-	
-	// now we can actually save the data
-	$allowed = array( 
-		'a' => array( // on allow a tags
-			'href' => array() // and those anchords can only have href attribute
-		)
-	);
-	
-	// Probably a good idea to make sure your data is set
-	if( isset( $_POST['_orbit_meta_box_caption_text'] ) )
-		update_post_meta( $post_id, '_orbit_meta_box_caption_text', wp_kses( $_POST['_orbit_meta_box_caption_text'], $allowed ) );
+if ( ! function_exists( 'orbit_meta_box_save' ) ) {
+	function orbit_meta_box_save( $post_id ) {
+		// Bail if we're doing an auto save
+		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		
+		// if our nonce isn't there, or we can't verify it, bail
+		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'orbit_meta_box_nonce' ) ) return;
+		
+		// if our current user can't edit this post, bail
+		if( !current_user_can( 'edit_post' ) ) return;
+		
+		// now we can actually save the data
+		$allowed = array( 
+			'a' => array( // on allow a tags
+				'href' => array() // and those anchords can only have href attribute
+			)
+		);
+		
+		// Probably a good idea to make sure your data is set
+		if( isset( $_POST['_orbit_meta_box_caption_text'] ) )
+			update_post_meta( $post_id, '_orbit_meta_box_caption_text', wp_kses( $_POST['_orbit_meta_box_caption_text'], $allowed ) );
+	}
 }
 
-function SliderContent(){
+if ( ! function_exists( 'SliderContent' ) ) {
+	function SliderContent($orbitparam) {
 
-	$args = array( 'post_type' => 'Orbit');
-	$loop = new WP_Query( $args );
+		$args = array( 'post_type' => 'Orbit');
+		$loop = new WP_Query( $args );
 
-	echo '<ul data-orbit>';
+		if($orbitparam != '') {
+			echo '<ul data-orbit data-options="' . $orbitparam . '">';
+		} else {
+			echo '<ul data-orbit>';
+		}
 
-		while ( $loop->have_posts() ) : $loop->the_post();
+			while ( $loop->have_posts() ) : $loop->the_post();
 
-			if(has_post_thumbnail()) {
+				if(has_post_thumbnail()) {
 
-				$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
-				$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
-				$orbitcaption = get_post_meta(get_the_ID(), '_orbit_meta_box_caption_text', true );
-				echo '<li>';
-				echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
-				if($orbitcaption != '') {echo '<div class="orbit-caption">' . $orbitcaption . '</div>';}
-				echo '</li>';
+					$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
+					$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
+					$orbitcaption = get_post_meta(get_the_ID(), '_orbit_meta_box_caption_text', true );
+					echo '<li>';
+					echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
+					if($orbitcaption != '') {echo '<div class="orbit-caption">' . $orbitcaption . '</div>';}
+					echo '</li>';
 
-			} else {
+				} else {
 
-				echo '<li><h2>';
-				the_title();
-				echo '</h2>';
-				the_content();
-				echo '</li>';
+					echo '<li><h2>';
+					the_title();
+					echo '</h2>';
+					the_content();
+					echo '</li>';
 
-			}
+				}
 
-		endwhile;
+			endwhile;
 
-		echo '</ul>';
-
+			echo '</ul>';
+	}
 }
 
 ?>
