@@ -208,8 +208,8 @@ if ( ! function_exists( 'orbit_meta_box_save' ) ) {
 	}
 }
 
-if ( ! function_exists( 'SliderContent' ) ) {
-	function SliderContent($orbitparam) {
+if ( ! function_exists( 'OrbitSlider' ) ) {
+	function OrbitSlider($orbitparam = null) {
 
 		$args = array( 'post_type' => 'Orbit');
 		$loop = new WP_Query( $args );
@@ -245,6 +245,15 @@ if ( ! function_exists( 'SliderContent' ) ) {
 			endwhile;
 
 			echo '</ul>';
+	}
+}
+
+/* Call OrbitSlider with no parameters. OrbitSlider was previously SliderContent.
+Reduces errors on child themes not yet updated.
+To be depreciated in a future version */
+if ( ! function_exists( 'SliderContent' ) ) {
+	function SliderContent() {
+		OrbitSlider();
 	}
 }
 

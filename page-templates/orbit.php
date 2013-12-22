@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="row">
 	<div id="primary" class="site-content large-8 columns large-centered">
 		<div id="content" role="main">
-			<?php SliderContent(); ?>
+			<?php OrbitSlider(); ?>
 		</div>
 	</div>
 </div>
