@@ -173,11 +173,16 @@ if ( ! function_exists( 'orbit_meta_box' ) ) {
 	function orbit_meta_box( $post ) {
 		$values = get_post_custom( $post->ID );
 		$caption = isset( $values['_orbit_meta_box_caption_text'] ) ? esc_attr( $values['_orbit_meta_box_caption_text'][0] ) : '';
+		$link = isset( $values['_orbit_meta_box_link_text'] ) ? esc_attr( $values['_orbit_meta_box_link_text'][0] ) : '';
 		wp_nonce_field( 'orbit_meta_box_nonce', 'meta_box_nonce' );
 		?>
 		<p>
 			<label for="_orbit_meta_box_caption_text">Caption</label>
 			<textarea id="orbit_meta_box_caption_text" class="widefat" name="_orbit_meta_box_caption_text"><?php echo esc_attr( $caption ); ?></textarea>
+		</p>
+		<p>
+			<label for="_orbit_meta_box_link_text">Link</label>
+			<input type="text" id="orbit_meta_box_link_text" class="widefat" name="_orbit_meta_box_link_text" value="<?php echo $link; ?>" />
 		</p>
 		<?php
 	}
@@ -205,6 +210,8 @@ if ( ! function_exists( 'orbit_meta_box_save' ) ) {
 		// Probably a good idea to make sure your data is set
 		if( isset( $_POST['_orbit_meta_box_caption_text'] ) )
 			update_post_meta( $post_id, '_orbit_meta_box_caption_text', wp_kses( $_POST['_orbit_meta_box_caption_text'], $allowed ) );
+		if( isset( $_POST['_orbit_meta_box_link_text'] ) )
+			update_post_meta( $post_id, '_orbit_meta_box_link_text', wp_kses( $_POST['_orbit_meta_box_link_text'], $allowed ) );
 	}
 }
 
@@ -227,9 +234,12 @@ if ( ! function_exists( 'OrbitSlider' ) ) {
 					$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
 					$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
 					$orbitcaption = get_post_meta(get_the_ID(), '_orbit_meta_box_caption_text', true );
+					$orbitlink = get_post_meta(get_the_ID(), '_orbit_meta_box_link_text', true );
 					echo '<li>';
+					if($orbitlink != '') {echo '<a href="' . $orbitlink . '">';}
 					echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
 					if($orbitcaption != '') {echo '<div class="orbit-caption">' . $orbitcaption . '</div>';}
+					if($orbitlink != '') {echo '</a>';}
 					echo '</li>';
 
 				} else {
