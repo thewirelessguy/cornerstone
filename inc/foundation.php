@@ -216,7 +216,7 @@ if ( ! function_exists( 'orbit_meta_box_save' ) ) {
 }
 
 if ( ! function_exists( 'OrbitSlider' ) ) {
-	function OrbitSlider($orbitparam = null) {
+	function OrbitSlider($orbitparam = null, $orbitsize = null) {
 
 		$args = array( 'post_type' => 'Orbit');
 		$loop = new WP_Query( $args );
@@ -231,13 +231,19 @@ if ( ! function_exists( 'OrbitSlider' ) ) {
 
 				if(has_post_thumbnail()) {
 
-					$orbitimage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
+					if($orbitsize != '') {
+						$orbitimagethumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), $orbitsize);
+						$orbitimage = $orbitimagethumbnail['0'];
+					} else {
+						$orbitimagefull = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail_size');
+						$orbitimage = $orbitimagefull['0'];
+					}
 					$orbitimagealttext = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
 					$orbitcaption = get_post_meta(get_the_ID(), '_orbit_meta_box_caption_text', true );
 					$orbitlink = get_post_meta(get_the_ID(), '_orbit_meta_box_link_text', true );
 					echo '<li>';
 					if($orbitlink != '') {echo '<a href="' . $orbitlink . '">';}
-					echo '<img src="'. $orbitimage['0'] . '" alt="' . $orbitimagealttext . '"/>';
+					echo '<img src="'. $orbitimage . '" alt="' . $orbitimagealttext . '"/>';
 					if($orbitcaption != '') {echo '<div class="orbit-caption">' . $orbitcaption . '</div>';}
 					if($orbitlink != '') {echo '</a>';}
 					echo '</li>';
