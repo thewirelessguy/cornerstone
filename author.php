@@ -14,7 +14,7 @@
 get_header(); ?>
 
 <div class="row">
-	<section id="primary" class="site-content large-8 columns">
+	<section id="primary" class="site-content medium-8 columns">
 		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>

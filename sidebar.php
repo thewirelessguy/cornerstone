@@ -1,5 +1,5 @@
 <!-- sidebar -->
-<div class="sidebar large-4 columns">
+<div class="sidebar medium-4 columns">
 
 	<?php if ( is_active_sidebar( 'right_sidebar' ) ) : ?>
 

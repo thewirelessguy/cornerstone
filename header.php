@@ -5,20 +5,19 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
+<meta charset="utf-8" />
 
-	<!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="initial-scale=1.0" />
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="initial-scale=1.0" />
 
-	<title><?php wp_title(''); ?></title>
+<title><?php wp_title(''); ?></title>
 
-  <?php wp_head(); ?>
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
-    <!-- Title Area -->
     <li class="name">
     	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     </li>

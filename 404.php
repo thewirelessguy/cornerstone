@@ -10,7 +10,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content large-12 columns">
+	<div id="primary" class="site-content mediums-12 columns">
 		<div id="content" role="main">
 			<article id="post-0" class="post error404 no-results not-found">
 

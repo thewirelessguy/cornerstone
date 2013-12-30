@@ -17,7 +17,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content large-12 columns">
+	<div id="primary" class="site-content medium-12 columns">
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
