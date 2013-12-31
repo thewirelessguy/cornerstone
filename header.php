@@ -10,7 +10,7 @@
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="initial-scale=1.0" />
 
-<title><?php wp_title(''); ?></title>
+<title><?php wp_title( '|', true, 'right' ); ?></title>
 
 <?php wp_head(); ?>
 </head>
