@@ -32,7 +32,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'normalize',
-			get_template_directory_uri() . '/css/normalize.css',
+			get_stylesheet_directory_uri() . '/css/normalize.css',
 			array(),
 			'2.1.2',
 			'all'
@@ -40,7 +40,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'foundation_css',
-			get_template_directory_uri() . '/css/foundation.min.css',
+			get_stylesheet_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
 			'5.0.3',
 			'all'
@@ -48,7 +48,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'foundation_ie8_grid',
-			get_template_directory_uri() . '/css/ie8-grid-foundation-4.css',
+			get_stylesheet_directory_uri() . '/css/ie8-grid-foundation-4.css',
 			array( 'foundation_css' ),
 			'1.0',
 			'all'
@@ -66,7 +66,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 
 		wp_enqueue_script(
 			'foundation_modernizr_js',
-			get_template_directory_uri() . '/js/custom.modernizr.js',
+			get_stylesheet_directory_uri() . '/js/custom.modernizr.js',
 			array(),
 			'2.6.2',
 			false
@@ -74,7 +74,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 
 		wp_enqueue_script(
 			'foundation_js',
-			get_template_directory_uri() . '/js/foundation.min.js',
+			get_stylesheet_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
 			'5.0.3',
 			true
@@ -82,7 +82,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 
 		wp_enqueue_script(
 			'foundation_init_js',
-			get_template_directory_uri() . '/js/foundation_init.js',
+			get_stylesheet_directory_uri() . '/js/foundation_init.js',
 			array('foundation_js'),
 			'1.0',
 			true
