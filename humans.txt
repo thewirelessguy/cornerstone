@@ -1,0 +1,21 @@
+/* Cornerstone is a WordPress starter theme based on the Zurb Foundation Responsive Framework. */
+
+/* TEAM */
+
+Developer: Stephen Mullen
+Site: http://www.thewirelessguy.co.uk
+Twitter: @wirelessguyuk
+Location: Preston, Lancashire, UK.
+
+
+/* THANKS */
+
+ZURB Foundation
+http://foundation.zurb.com/
+
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Components: Modernizr, jQuery, Zurb Foundation.  
+CMS: WordPress
