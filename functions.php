@@ -37,7 +37,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'normalize',
 			get_template_directory_uri() . '/css/normalize.css',
 			array(),
-			'2.1.2',
+			'3.0.0',
 			'all'
 		);
 
@@ -45,7 +45,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.1.1',
+			'5.2.0',
 			'all'
 		);
 
@@ -71,7 +71,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_modernizr_js',
 			get_template_directory_uri() . '/js/modernizr.js',
 			array(),
-			'2.7.1',
+			'2.7.2',
 			false
 		);
 
@@ -79,7 +79,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.1.1',
+			'5.2.0',
 			true
 		);
 
