@@ -7,13 +7,13 @@ function remove_generators() {
 add_filter('the_generator','remove_generators');
 
 // This theme supports a variety of post formats.
-add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
+add_theme_support('post-formats', array('aside', 'image', 'link', 'quote', 'status'));
 
 // Add thumbnail support
-add_theme_support( 'post-thumbnails' );
+add_theme_support('post-thumbnails');
 
 // Add widget live previews support
-add_theme_support(‘widget-customizer’);
+add_theme_support('widget-customizer');
 
 // Disable the admin bar, set to true if you want it to be visible.
 show_admin_bar(FALSE);
