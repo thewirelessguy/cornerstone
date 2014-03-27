@@ -83,20 +83,21 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			true
 		);
 
-		wp_enqueue_script(
-			'foundation_init_js',
-			get_template_directory_uri() . '/js/foundation_init.js',
-			array('foundation_js'),
-			'1.0',
-			true
-		);
-
 	}
 
 }
 
 add_action( 'wp_enqueue_scripts', 'load_cornerstone_css', 0 );
 add_action( 'wp_enqueue_scripts', 'load_cornerstone_scripts', 0 );
+
+
+// load Foundation initialisation script in footer
+if ( ! function_exists( 'cornerstone_foundation_init' ) ) {
+	function cornerstone_foundation_init() { ?>
+	<script type="text/javascript">jQuery.noConflict();jQuery(document).foundation();</script>
+	<?php }
+}
+add_action( 'wp_footer', 'cornerstone_foundation_init', 9999 );
 
 
 // load Foundation specific functions
