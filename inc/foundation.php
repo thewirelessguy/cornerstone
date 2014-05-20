@@ -273,4 +273,14 @@ if ( ! function_exists( 'SliderContent' ) ) {
 	}
 }
 
+/* Stop WordPress from using the sticky class and style WordPress sticky posts using the
+.wordpress-sticky class instead. It’s simpler than modifying Foundation to use a different class. */
+
+function remove_sticky_class($classes) {
+  $classes = array_diff($classes, array("sticky"));
+  $classes[] = 'wordpress-sticky';
+  return $classes;
+}
+add_filter('post_class','remove_sticky_class');
+
 ?>
