@@ -264,14 +264,6 @@ if ( ! function_exists( 'OrbitSlider' ) ) {
 	}
 }
 
-/* Call OrbitSlider with no parameters. OrbitSlider was previously SliderContent.
-Reduces errors on child themes not yet updated.
-To be depreciated in a future version */
-if ( ! function_exists( 'SliderContent' ) ) {
-	function SliderContent() {
-		OrbitSlider();
-	}
-}
 
 /* Stop WordPress from using the sticky class and style WordPress sticky posts using the
 .wordpress-sticky class instead. It’s simpler than modifying Foundation to use a different class. */

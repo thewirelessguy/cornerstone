@@ -18,10 +18,6 @@ add_theme_support('widget-customizer');
 // Disable the admin bar, set to true if you want it to be visible.
 show_admin_bar(FALSE);
 
-
-// Shortcodes
-//include('inc/shortcodes.php');
-
 // Add theme support for Automatic Feed Links
 add_theme_support( 'automatic-feed-links' );
 
@@ -45,7 +41,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.2.3',
+			'5.3.0',
 			'all'
 		);
 
@@ -79,7 +75,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.2.3',
+			'5.3.0',
 			true
 		);
 
