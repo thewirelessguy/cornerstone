@@ -16,7 +16,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<nav class="top-bar" data-topbar data-options="mobile_show_parent_link: true">
+<nav class="top-bar" data-topbar role="navigation" data-options="mobile_show_parent_link: true">
   <ul class="title-area">
     <li class="name">
     	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>

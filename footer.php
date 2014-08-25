@@ -1,5 +1,5 @@
 <div id="footer">
-	<footer class="row">
+	<footer class="row" role="contentinfo">
 		<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Sidebar')) : ?>
 		<?php endif; ?>
 		<?php if ( has_nav_menu( 'footer-menu' ) ) {

@@ -41,7 +41,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.3.3',
+			'5.4.0',
 			'all'
 		);
 
@@ -75,7 +75,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.3.3',
+			'5.4.0',
 			true
 		);
 
@@ -252,8 +252,8 @@ function emm_paginate($args = null) {
 	$defaults = array(
 		'page' => null, 'pages' => null,
 		'range' => 3, 'gap' => 3, 'anchor' => 1,
-		'before' => '<ul class="pagination">', 'after' => '</ul>',
-		'title' => __('<li class="unavailable"></li>'),
+		'before' => '<ul class="pagination" role="menubar" aria-label="Pagination">', 'after' => '</ul>',
+		'title' => __('<li class="unavailable" aria-disabled="true"></li>'),
 		'nextpage' => __('&raquo;'), 'previouspage' => __('&laquo'),
 		'echo' => 1
 	);
@@ -274,10 +274,10 @@ function emm_paginate($args = null) {
 	$output = "";
 	if ($pages > 1) {
 		$output .= "$before<li>$title</li>";
-		$ellipsis = "<li class='unavailable'>...</li>";
+		$ellipsis = '<li class="unavailable" aria-disabled="true">...</li>';
 
 		if ($page > 1 && !empty($previouspage)) {
-			$output .= "<li><a href='" . get_pagenum_link($page - 1) . "'>$previouspage</a></li>";
+			$output .= '<li><a href="' . get_pagenum_link($page - 1) . '">' . $previouspage . '</a></li>';
 		}
 
 		$min_links = $range * 2 + 1;
@@ -314,7 +314,7 @@ function emm_paginate($args = null) {
 		}
 
 		if ($page < $pages && !empty($nextpage)) {
-			$output .= "<li><a href='" . get_pagenum_link($page + 1) . "'>$nextpage</a></li>";
+			$output .= '<li><a href="' . get_pagenum_link($page + 1) . '">' . $nextpage . '</a></li>';
 		}
 
 		$output .= $after;
@@ -344,8 +344,8 @@ function emm_paginate_loop($start, $max, $page = 0) {
 	$output = "";
 	for ($i = $start; $i <= $max; $i++) {
 		$output .= ($page === intval($i))
-			? "<li class='current'><a href='#'>$i</a></li>"
-			: "<li><a href='" . get_pagenum_link($i) . "'>$i</a></li>";
+			? '<li class="current"><a href="">' . $i . '</a></li>'
+			: '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>';
 	}
 	return $output;
 }
