@@ -41,7 +41,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.4.0',
+			'5.4.5',
 			'all'
 		);
 
@@ -75,7 +75,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.4.0',
+			'5.4.5',
 			true
 		);
 
@@ -215,6 +215,7 @@ function cornerstone_comment( $comment, $args, $depth ) {
 endif;
 
 
+if ( ! function_exists( 'emm_paginate' ) ) :
 // Custom Pagination
 /**
  * Retrieve or display pagination code.
@@ -326,7 +327,9 @@ function emm_paginate($args = null) {
 
 	return $output;
 }
+endif;
 
+if ( ! function_exists( 'emm_paginate_loop' ) ) :
 /**
  * Helper function for pagination which builds the page links.
  *
@@ -349,6 +352,8 @@ function emm_paginate_loop($start, $max, $page = 0) {
 	}
 	return $output;
 }
+endif;
+
 
 if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 /**
@@ -397,6 +402,8 @@ function cornerstone_entry_meta() {
 }
 endif;
 
+
+if ( ! function_exists( 'cornerstone_wp_title' ) ) :
 /**
  * Filter the page title.
  *
@@ -432,5 +439,5 @@ function cornerstone_wp_title( $title, $sep ) {
 
 	return $title;
 }
+endif;
 add_filter( 'wp_title', 'cornerstone_wp_title', 10, 2 );
-?>

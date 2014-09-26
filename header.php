@@ -7,7 +7,6 @@
 <head>
 <meta charset="utf-8" />
 
-<!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="initial-scale=1.0" />
 
 <title><?php wp_title( '|', true, 'right' ); ?></title>
@@ -21,13 +20,11 @@
     <li class="name">
     	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
     <?php
-      // Left Nav Section
       if ( has_nav_menu( 'header-menu-left' ) ) {
           wp_nav_menu( array(
               'theme_location' => 'header-menu-left',
@@ -44,7 +41,6 @@
       ?>
 
     <?php
-      //Right Nav Section
       if ( has_nav_menu( 'header-menu-right' ) ) {
           wp_nav_menu( array(
               'theme_location' => 'header-menu-right',
