@@ -9,8 +9,6 @@
 
 <meta name="viewport" content="initial-scale=1.0" />
 
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-
 <?php wp_head(); ?>
 </head>
 
