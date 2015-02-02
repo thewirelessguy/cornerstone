@@ -49,7 +49,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.5.0',
+			'5.5.1',
 			'all'
 		);
 
@@ -83,7 +83,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.5.0',
+			'5.5.1',
 			true
 		);
 
