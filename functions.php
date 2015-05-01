@@ -21,6 +21,9 @@ show_admin_bar(FALSE);
 // Add theme support for Automatic Feed Links
 add_theme_support( 'automatic-feed-links' );
 
+// Declare Woocommerce support
+add_theme_support( 'woocommerce' );
+
 /*
 * Let WordPress manage the document title.
 * By adding theme support, we declare that this theme does not use a
@@ -28,6 +31,8 @@ add_theme_support( 'automatic-feed-links' );
 * provide it for us.
 */
 add_theme_support( 'title-tag' );
+
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
 
 // Enqueue CSS and scripts
 
@@ -41,7 +46,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'normalize',
 			get_template_directory_uri() . '/css/normalize.css',
 			array(),
-			'3.0.2',
+			'3.0.3',
 			'all'
 		);
 
@@ -49,7 +54,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 			'foundation_css',
 			get_template_directory_uri() . '/css/foundation.min.css',
 			array('normalize'),
-			'5.5.1',
+			'5.5.2',
 			'all'
 		);
 
@@ -83,7 +88,7 @@ if ( ! function_exists( 'load_cornerstone_scripts' ) ) {
 			'foundation_js',
 			get_template_directory_uri() . '/js/foundation.min.js',
 			array('jquery'),
-			'5.5.1',
+			'5.5.2',
 			true
 		);
 
@@ -133,27 +138,29 @@ add_action( 'init', 'cornerstone_menus' );
 
 if (function_exists('register_sidebar')) {
 
-	// Right Sidebar
+	function cornerstone_widgets_init() {
 
-	register_sidebar(array(
-		'name'=> 'Right Sidebar',
-		'id' => 'right_sidebar',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
+		// Right Sidebar
+		register_sidebar(array(
+			'name'=> 'Right Sidebar',
+			'id' => 'right_sidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h4 class="widgettitle">',
+			'after_title' => '</h4>',
+		));
 
-	// Footer Sidebar
-
-	register_sidebar(array(
-		'name'=> 'Footer Sidebar',
-		'id' => 'footer_sidebar',
-		'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4>',
-		'after_title' => '</h4>',
-	));
+		// Footer Sidebar
+		register_sidebar(array(
+			'name'=> 'Footer Sidebar',
+			'id' => 'footer_sidebar',
+			'before_widget' => '<li id="%1$s" class="%2$s">',
+			'after_widget' => '</li>',
+			'before_title' => '<h4>',
+			'after_title' => '</h4>',
+		));
+	}
+	add_action( 'widgets_init', 'cornerstone_widgets_init' );
 }
 
 
@@ -411,41 +418,12 @@ function cornerstone_entry_meta() {
 endif;
 
 
-if ( ! function_exists( 'cornerstone_wp_title' ) ) :
-/**
- * Filter the page title.
- *
- * Creates a nicely formatted and more specific title element text
- * for output in head of document, based on current view.
- *
- * @since Cornerstone 3.0.3
- *
- * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
- * @return string Filtered title.
- */
-function cornerstone_wp_title( $title, $sep ) {
-	global $paged, $page;
-
-	if ( is_feed() ) {
-		return $title;
-	}
-
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
-
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title = "$title $sep $site_description";
-	}
-
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'cornerstone' ), max( $paged, $page ) );
-	}
-
-	return $title;
+function search_form_no_filters() {
+  // look for local searchform template
+  $search_form_template = locate_template( 'searchform.php' );
+  if ( '' !== $search_form_template ) {
+    // searchform.php exists, remove all filters
+    remove_all_filters('get_search_form');
+  }
 }
-endif;
-add_filter( 'wp_title', 'cornerstone_wp_title', 10, 2 );
+add_action('pre_get_search_form', 'search_form_no_filters');

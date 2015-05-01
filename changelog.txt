@@ -1,0 +1,8 @@
+== changelog ==
+
+= 3.5.2 =
+* Updated to Zurb Foundation 5.5.2
+* Change footer widgets to use block grid instead of columns. This makes it easier to edit number of columns from footer.php instead of having to unregister and register sidebar in a child theme.
+* Removed cornerstone_wp_title. No longer needed since title-tag supported added in previous release.
+* Added support for Woocommerce.
+* Added searchform.php
