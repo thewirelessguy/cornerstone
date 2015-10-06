@@ -1,5 +1,11 @@
 == changelog ==
 
+= 3.5.3 =
+
+* Updated to Foundation 5.5.3.
+* Split functions.php into separate files to ease maintainability.
+* Added several do_action hooks.
+
 = 3.5.2 =
 * Updated to Zurb Foundation 5.5.2
 * Change footer widgets to use block grid instead of columns. This makes it easier to edit number of columns from footer.php instead of having to unregister and register sidebar in a child theme.
