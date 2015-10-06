@@ -12,6 +12,7 @@ get_header(); ?>
 <div class="row">
 	<div id="primary" class="site-content small-12 mediums-12 columns">
 		<div id="content" role="main">
+			<?php do_action( 'cornerstone_before_content' ); ?>
 			<article id="post-0" class="post error404 no-results not-found">
 
 				<header class="entry-header">
@@ -25,6 +26,7 @@ get_header(); ?>
 				</div>
 
 			</article>
+			<?php do_action( 'cornerstone_after_content' ); ?>
 		</div>
 	</div>
 </div>

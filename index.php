@@ -22,6 +22,8 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
+				<?php do_action( 'cornerstone_before_content' ); ?>
+
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', get_post_format() ); ?>
@@ -57,12 +59,16 @@ get_header(); ?>
 
 				</article>
 
+				<?php do_action( 'cornerstone_before_pagination' ); ?>
+
 			<?php endif; ?>
 
 			<?php // Pagination
 				if (function_exists("emm_paginate")) {
 			    emm_paginate();
 			} ?>
+
+			<?php do_action( 'cornerstone_after_content' ); ?>
 
 		</div>
 	</div>

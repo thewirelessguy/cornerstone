@@ -29,10 +29,12 @@
 		<?php the_excerpt(); ?>
 	</div>
 	<?php else : ?>
+	<?php do_action( 'cornerstone_page_before_entry_content' ); ?>
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cornerstone' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'cornerstone' ), 'after' => '</div>' ) ); ?>
 	</div>
+	<?php do_action( 'cornerstone_page_after_entry_content' ); ?>
 	<?php endif; ?>
 
 	<footer class="entry-meta">

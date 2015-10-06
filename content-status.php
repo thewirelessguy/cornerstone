@@ -17,9 +17,11 @@
 		<?php echo get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'cornerstone_status_avatar', '48' ) ); ?>
 	</div>
 
+	<?php do_action( 'cornerstone_page_before_entry_content' ); ?>
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cornerstone' ) ); ?>
 	</div>
+	<?php do_action( 'cornerstone_page_after_entry_content' ); ?>
 
 	<footer class="entry-meta">
 		<?php if ( comments_open() ) : ?>

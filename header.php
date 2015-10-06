@@ -13,6 +13,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php do_action( 'cornerstone_after_body' ); ?>
 <nav class="top-bar" data-topbar role="navigation" data-options="mobile_show_parent_link: true">
   <ul class="title-area">
     <li class="name">
@@ -55,3 +56,4 @@
       ?>
   </section>
 </nav>
+<?php do_action( 'cornerstone_after_header' ); ?>

@@ -13,8 +13,10 @@
 		<h1 class="entry-title"><?php _e( 'Nothing Found', 'cornerstone' ); ?></h1>
 	</header>
 
+	<?php do_action( 'cornerstone_page_before_entry_content' ); ?>
 	<div class="entry-content">
 		<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'cornerstone' ); ?></p>
 		<?php get_search_form(); ?>
 	</div>
+	<?php do_action( 'cornerstone_page_after_entry_content' ); ?>
 </article>
