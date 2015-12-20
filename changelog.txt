@@ -1,5 +1,9 @@
 == changelog ==
 
+= 4.0 =
+* Updated to Foundation 6.0.6.
+* Orbit slider functionality removed. Now available as separate WordPress plugin.
+
 = 3.5.3 =
 
 * Updated to Foundation 5.5.3.

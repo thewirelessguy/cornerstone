@@ -25,8 +25,8 @@ if (function_exists('register_sidebar')) {
 		register_sidebar(array(
 			'name'=> 'Footer Sidebar',
 			'id' => 'footer_sidebar',
-			'before_widget' => '<li id="%1$s" class="%2$s">',
-			'after_widget' => '</li>',
+			'before_widget' => '<div id="%1$s" class="column %2$s">',
+			'after_widget' => '</div>',
 			'before_title' => '<h4>',
 			'after_title' => '</h4>',
 		));

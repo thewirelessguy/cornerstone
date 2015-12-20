@@ -112,3 +112,13 @@ class cornerstone_walker extends Walker_Nav_Menu {
   	}
 }
 endif;
+
+
+if ( ! class_exists( 'cornerstone_offcanvas_walker' ) ) :
+class cornerstone_offcanvas_walker extends Walker_Nav_Menu {
+    function start_lvl(&$output, $depth = 0, $args = Array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"vertical nested menu\">\n";
+    }
+}
+endif;

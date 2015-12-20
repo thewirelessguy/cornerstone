@@ -91,7 +91,7 @@ function emm_paginate($args = null) {
 	$defaults = array(
 		'page' => null, 'pages' => null,
 		'range' => 3, 'gap' => 3, 'anchor' => 1,
-		'before' => '<ul class="pagination" role="menubar" aria-label="Pagination">', 'after' => '</ul>',
+		'before' => '<ul class="pagination" role="navigation" aria-label="Pagination">', 'after' => '</ul>',
 		'title' => __('<li class="unavailable" aria-disabled="true"></li>'),
 		'nextpage' => __('&raquo;'), 'previouspage' => __('&laquo'),
 		'echo' => 1
@@ -186,8 +186,8 @@ function emm_paginate_loop($start, $max, $page = 0) {
 	$output = "";
 	for ($i = $start; $i <= $max; $i++) {
 		$output .= ($page === intval($i))
-			? '<li class="current"><a href="">' . $i . '</a></li>'
-			: '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>';
+			? '<li class="current"><span class="show-for-sr">' . __( 'You\'re on page', 'cornerstone') . '</span> ' . $i . '</li>'
+			: '<li><a href="' . get_pagenum_link($i) . '" aria-label="' . __( 'Page', 'cornerstone') . ' ' . $i .'">' . $i . '</a></li>';
 	}
 	return $output;
 }

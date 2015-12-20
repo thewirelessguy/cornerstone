@@ -14,46 +14,55 @@
 
 <body <?php body_class(); ?>>
 <?php do_action( 'cornerstone_after_body' ); ?>
-<nav class="top-bar" data-topbar role="navigation" data-options="mobile_show_parent_link: true">
-  <ul class="title-area">
-    <li class="name">
-    	<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+<nav>
+	<div class="title-bar" data-responsive-toggle="top-menu" data-hide-for="large">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="float-left"><?php bloginfo( 'name' ); ?></a>
+		<div class="float-right">
+			<div class="title-bar-title">Menu</div>
+			<button class="menu-icon" type="button" data-toggle></button>
+		</div>
+	</div>
 
-  <section class="top-bar-section">
-    <?php
-      if ( has_nav_menu( 'header-menu-left' ) ) {
-          wp_nav_menu( array(
-              'theme_location' => 'header-menu-left',
-              'container' => false,
-              'depth' => 0,
-              'items_wrap' => '<ul class="left">%3$s</ul>',
-              'fallback_cb' => false,
-              'walker' => new cornerstone_walker( array(
-                  'in_top_bar' => true,
-                  'item_type' => 'li'
-              ) ),
-          ) );
-        }
-      ?>
-
-    <?php
-      if ( has_nav_menu( 'header-menu-right' ) ) {
-          wp_nav_menu( array(
-              'theme_location' => 'header-menu-right',
-              'container' => false,
-              'depth' => 0,
-              'items_wrap' => '<ul class="right">%3$s</ul>',
-              'fallback_cb' => false,
-              'walker' => new cornerstone_walker( array(
-                  'in_top_bar' => true,
-                  'item_type' => 'li'
-              ) ),
-          ) );
-        }
-      ?>
-  </section>
+	<div class="top-bar" id="top-menu">
+		<div class="top-bar-left">
+			<ul class="vertical large-horizontal dropdown menu" data-responsive-menu="drilldown large-dropdown">
+				<li class="menu-text">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="show-for-large"><?php bloginfo( 'name' ); ?></a>
+				</li>
+				<?php
+				if ( has_nav_menu( 'header-menu-left' ) ) {
+					wp_nav_menu( array(
+						'theme_location' => 'header-menu-left',
+						'container' => false,
+						'depth' => 0,
+						'items_wrap' => '%3$s',
+						'fallback_cb' => false,
+						'walker' => new cornerstone_walker( array(
+							'in_top_bar' => true,
+							'item_type' => 'li'
+							) ),
+						) );
+				}
+				?>
+			</ul>
+		</div>
+		<div class="top-bar-right">
+			<?php
+			if ( has_nav_menu( 'header-menu-right' ) ) {
+				wp_nav_menu( array(
+					'theme_location' => 'header-menu-right',
+					'container' => false,
+					'depth' => 0,
+					'items_wrap' => '<ul class="dropdown menu" data-dropdown-menu>%3$s</ul>',
+					'fallback_cb' => false,
+					'walker' => new cornerstone_walker( array(
+						'in_top_bar' => true,
+						'item_type' => 'li'
+						) ),
+					) );
+			}
+			?>
+		</div>
+	</div>
 </nav>
 <?php do_action( 'cornerstone_after_header' ); ?>
