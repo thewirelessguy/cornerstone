@@ -44,11 +44,8 @@
 			'depth' => 0,
 			'items_wrap' => '<ul class="vertical menu" data-accordion-menu>%3$s</ul>',
 			'fallback_cb' => false,
-			'walker' => new cornerstone_walker( array(
-				'in_top_bar' => true,
-				'item_type' => 'li'
-				) ),
-			) ); ?>
+			'walker' => new Foundation_Accordion_Menu_Walker(),
+		)); ?>
   	</div>
   	<?php } ?>
 
@@ -61,11 +58,8 @@
 			'depth' => 0,
 			'items_wrap' => '<ul class="vertical menu" data-accordion-menu>%3$s</ul>',
 			'fallback_cb' => false,
-			'walker' => new cornerstone_walker( array(
-				'in_top_bar' => true,
-				'item_type' => 'li'
-				) ),
-			) ); ?>
+			'walker' => new Foundation_Accordion_Menu_Walker(),
+		)); ?>
   	</div>
   	<?php } ?>
 
@@ -84,11 +78,8 @@
 						'depth' => 0,
 						'items_wrap' => '%3$s',
 						'fallback_cb' => false,
-						'walker' => new cornerstone_walker( array(
-							'in_top_bar' => true,
-							'item_type' => 'li'
-							) ),
-						) );
+						'walker' => new Foundation_Dropdown_Menu_Walker(),
+					));
 				}
 				?>
 			</ul>
@@ -102,13 +93,9 @@
 					'depth' => 0,
 					'items_wrap' => '<ul class="dropdown menu" data-dropdown-menu>%3$s</ul>',
 					'fallback_cb' => false,
-					'walker' => new cornerstone_walker( array(
-						'in_top_bar' => true,
-						'item_type' => 'li'
-						) ),
-					) );
-				}
-			?>
+					'walker' => new Foundation_Dropdown_Menu_Walker(),
+				));
+			} ?>
 		</div>
 	</div>
 
