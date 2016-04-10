@@ -1,5 +1,12 @@
 == changelog ==
 
+= 4.2.1 =
+* Updated to Foundation 6.2.1.
+* Updated and simplified menu walkers. There are now 2 Foundation menu walkers - Dropdown and Accordion.
+
+= 4.2 =
+* Updated to Foundation 6.2.0.
+
 = 4.0 =
 * Updated to Foundation 6.0.6.
 * Orbit slider functionality removed. Now available as separate WordPress plugin.

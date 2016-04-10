@@ -70,8 +70,7 @@
 				<li class="menu-text">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="show-for-large"><?php bloginfo( 'name' ); ?></a>
 				</li>
-				<?php
-				if ( has_nav_menu( 'header-menu-left' ) ) {
+				<?php if ( has_nav_menu( 'header-menu-left' ) ) {
 					wp_nav_menu( array(
 						'theme_location' => 'header-menu-left',
 						'container' => false,
@@ -80,13 +79,11 @@
 						'fallback_cb' => false,
 						'walker' => new Foundation_Dropdown_Menu_Walker(),
 					));
-				}
-				?>
+				} ?>
 			</ul>
 		</div>
 		<div class="top-bar-right">
-			<?php
-			if ( has_nav_menu( 'header-menu-right' ) ) {
+			<?php if ( has_nav_menu( 'header-menu-right' ) ) {
 				wp_nav_menu( array(
 					'theme_location' => 'header-menu-right',
 					'container' => false,
