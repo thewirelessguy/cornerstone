@@ -1,5 +1,10 @@
 == changelog ==
 
+= 4.2.2 =
+* Updated to Foundation 6.2.2.
+* Added support for Custom Logo upload with blog name text fallback if no logo exists.
+* Changed mobile menu to now default to show for both small and medium screens instead of just small.
+
 = 4.2.1 =
 * Updated to Foundation 6.2.1.
 * Updated and simplified menu walkers. There are now 2 Foundation menu walkers - Dropdown and Accordion.
