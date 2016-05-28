@@ -21,15 +21,23 @@
 
   	<?php // off-canvas title bar for 'small' and 'medium' screen ?>
   	<div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="large">
-  		<?php if ( has_nav_menu( 'offCanvasLeft' ) ) { ?>
   		<div class="title-bar-left">
-  			<button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-  			<span class="title-bar-title">Menu</span>
+  			<?php if ( has_nav_menu( 'offCanvasLeft' ) ) { ?>
+  				<button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+  			<?php } ?>
+  			<span class="title-bar-title">
+				<?php if ( function_exists( 'the_custom_logo' ) ) {
+					$logo = get_custom_logo();
+					if(!empty($logo)) {
+						echo $logo;
+					} else { ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" itemprop="url" tabindex="0"><?php bloginfo( 'name' ); ?></a>
+					<?php }
+				} ?>
+  			</span>
   		</div>
-  		<?php } ?>
   		<?php if ( has_nav_menu( 'offCanvasRight' ) ) { ?>
   		<div class="title-bar-right">
-  			<span class="title-bar-title">Menu</span>
   			<button class="menu-icon" type="button" data-open="offCanvasRight"></button>
   		</div>
   		<?php } ?>

@@ -1,5 +1,9 @@
 == changelog ==
 
+= 4.2.3 =
+* Updated to Foundation 6.2.3.
+* Added support for Custom Logo with blog name text fallback to small and medium screens. Removed 'MENU' to leave more space for logo or blog name.
+
 = 4.2.2 =
 * Updated to Foundation 6.2.2.
 * Added support for Custom Logo upload with blog name text fallback if no logo exists.
