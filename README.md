@@ -20,10 +20,10 @@ Clone the git repo `https://github.com/thewirelessguy/cornerstone.git` or [downl
 
 **ZURB**
 
-Foundation was made by [ZURB](http://foundation.zurb.com/), a product design company in Campbell, California. Their Github repository can be found at https://github.com/zurb/foundation
+Foundation was made by [ZURB](http://foundation.zurb.com/), a product design company in Campbell, California. Their Github repository can be found at https://github.com/zurb/foundation-sites
 
 **Stephen Mullen**
 
 Stephen is a web designer and Android app developer based in Preston, UK
-+ [Twitter @wirelessguyuk](http://twitter.com/wirelessguyuk)
-+ [Website](http://thewirelessguy.co.uk)
++ [Twitter @wirelessguyuk](https://twitter.com/wirelessguyuk)
++ [Website](https://www.thewirelessguy.co.uk)
