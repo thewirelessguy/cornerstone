@@ -6,9 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-
 <meta name="viewport" content="initial-scale=1.0" />
-
 <?php wp_head(); ?>
 </head>
 
@@ -25,7 +23,7 @@
   			<?php if ( has_nav_menu( 'offCanvasLeft' ) ) { ?>
   				<button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
   			<?php } ?>
-  			<span class="title-bar-title">
+  			<span class="title-bar-title" itemscope itemtype="http://schema.org/Organization">
 				<?php if ( function_exists( 'the_custom_logo' ) ) {
 					$logo = get_custom_logo();
 					if(!empty($logo)) {
@@ -75,7 +73,7 @@
 	<div id="widemenu" class="top-bar">
 		<div class="top-bar-left">
 			<ul class="dropdown menu" data-dropdown-menu>
-				<li class="menu-text">
+				<li class="menu-text" itemscope itemtype="http://schema.org/Organization">
 					<?php if ( function_exists( 'the_custom_logo' ) ) {
 						$logo = get_custom_logo();
 						if(!empty($logo)) {
