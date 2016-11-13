@@ -33,3 +33,9 @@ if (function_exists('register_sidebar')) {
 	}
 	add_action( 'widgets_init', 'cornerstone_widgets_init' );
 }
+
+
+/**
+ * Enable shortcodes in widgets
+ */
+add_filter('widget_text', 'do_shortcode');
