@@ -7,4 +7,4 @@
  * @since Cornerstone 3.5.2
  */
 ?>
-<ul class="products small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<ul class="row small-up-1 medium-up-2 large-up-4 products">
