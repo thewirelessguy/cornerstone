@@ -1,26 +1,26 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Page Template, Left Sidebar
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * Description: Cornerstone loves the no-sidebar look as much as
+ * you do. Use this page template to remove the sidebar from any page.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Tip: to remove the sidebar from all posts and pages simply remove
+ * any active widgets from the Main Sidebar area, and the sidebar will
+ * disappear everywhere.
  *
  * @package WordPress
  * @subpackage Cornerstone
- * @since Cornerstone 1.0
+ * @since Cornerstone 5.0.0
  */
 
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content columns">
+	<div id="primary" class="site-content columns medium-order-2">
 		<main id="content" role="main">
 
-		<?php do_action( 'cornerstone_before_content' );
+			<?php do_action( 'cornerstone_before_content' );
 
 			while ( have_posts() ) : the_post();
 
@@ -40,6 +40,8 @@ get_header(); ?>
 
 		</main>
 	</div>
+
+	<?php get_sidebar(); ?>
 
 </div>
 

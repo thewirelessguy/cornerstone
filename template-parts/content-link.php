@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for displaying posts in the Link post format
+ * The template for displaying posts in the Link post format.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
  * @subpackage Cornerstone
@@ -12,11 +14,15 @@
 	<header><?php _e( 'Link', 'cornerstone' ); ?></header>
 	<?php do_action( 'cornerstone_page_before_entry_content' ); ?>
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cornerstone' ) ); ?>
+		<?php the_content( sprintf(
+				/* translators: %s: Name of current post. */
+				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'cornerstone' ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				) ); ?>
 	</div>
 	<?php do_action( 'cornerstone_page_after_entry_content' ); ?>
 
-	<footer class="entry-meta">
+	<footer class="entry-meta-footer">
 		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'cornerstone' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php echo get_the_date(); ?></a>
 		<?php if ( comments_open() ) : ?>
 		<div class="comments-link">

@@ -4,7 +4,7 @@
  *
  * Used to display archive-type pages for posts by an author.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
  * @subpackage Cornerstone
@@ -14,8 +14,8 @@
 get_header(); ?>
 
 <div class="row">
-	<section id="primary" class="site-content small-12 medium-8 columns">
-		<div id="content" role="main">
+	<section id="primary" class="site-content columns">
+		<main id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -31,7 +31,7 @@ get_header(); ?>
 
 			<header class="archive-header">
 				<h1 class="archive-title"><?php printf( __( 'Author Archives: %s', 'cornerstone' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-			</header><!-- .archive-header -->
+			</header><?php // .archive-header ?>
 
 			<?php
 				/* Since we called the_post() above, we need to
@@ -47,25 +47,25 @@ get_header(); ?>
 			<div class="author-info">
 				<div class="author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'cornerstone_author_bio_avatar_size', 60 ) ); ?>
-				</div><!-- .author-avatar -->
+				</div><?php // .author-avatar ?>
 				<div class="author-description">
 					<h2><?php printf( __( 'About %s', 'cornerstone' ), get_the_author() ); ?></h2>
 					<p><?php the_author_meta( 'description' ); ?></p>
-				</div><!-- .author-description	-->
-			</div><!-- .author-info -->
+				</div><?php // .author-description	?>
+			</div><?php // .author-info ?>
 			<?php endif; ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
 		<?php else : ?>
-			<?php get_template_part( 'content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 		<?php endif; ?>
 
-		</div><!-- #content -->
-	</section><!-- #primary -->
+		</main><?php // #content ?>
+	</section><?php // #primary ?>
 
 	<?php get_sidebar(); ?>
 </div>

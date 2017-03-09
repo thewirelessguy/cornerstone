@@ -1,5 +1,5 @@
 <?php do_action('cornerstone_before_searchform'); ?>
-<div class="small-12 columns">
+<div class="columns">
 <form role="search" method="get" id="searchform" action="<?php echo home_url('/'); ?>">
 	<div class="row collapse">
 		<?php do_action('cornerstone_searchform_top'); ?>

@@ -11,6 +11,7 @@
  * functions.php file. The child theme's functions.php file is included before
  * the parent theme's file, so the child theme functions would be used.
  *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
  * @link https://codex.wordpress.org/Theme_Development
  * @link https://codex.wordpress.org/Child_Themes
  *

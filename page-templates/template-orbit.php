@@ -12,7 +12,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content small-12 medium-12 large-8 columns large-centered">
+	<div id="primary" class="site-content columns">
 		<div id="content" role="main">
 			<?php do_action( 'cornerstone_before_content' ); ?>
 			<?php if ( function_exists( 'OrbitSlider' ) ) { OrbitSlider(null, null, null, true); } ?>

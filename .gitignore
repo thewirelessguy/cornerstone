@@ -12,3 +12,6 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml
 sitemap.xml.gz
+bower_components/
+.DS_Store
+.bowerrc

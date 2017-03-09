@@ -1,5 +1,31 @@
 == changelog ==
 
+= 5.0.0 =
+* Updated to Foundation 6.3.
+* Now using flex grid as default. Changed Foundation classes to use the flex versions.
+* Enabled shortcodes in widgets.
+* Fixed Woocommerce products grid by updating classes to use Foundation 6 classes.
+* Switched to <main> tag instead div for id="content"
+* Page default is now full width, with template options for left or right sidebar
+* Moved content post formats to template-parts.
+* Archive/category/index/tags have been simplified allowing them to use the same layout via get_template_part.
+* Added ability to switch blog layouts (e.g 'classic', 'grid', 'cards') for archive/category/index/tags by changing a parameter in the get_template_part.
+* Added 'Menu' next to hamburger menu to increase usability. Uses a translatable string.
+* Updated documentation at the top of files.
+* Footer - removed menu container, centered menu and removed row class from footer tag.
+* Main style.css enqueued for those not using the theme with a child theme. Easily overridden from child theme.
+* Included WordPress Core CSS in stylesheet - https://codex.wordpress.org/CSS
+* Enqueue comment-reply.js on posts/pages with open comments.
+* Added Responsive Embed wrapper for YouTube, Vimeo and Facebook videos
+* Completely rewritten cornerstone_entry_meta function. Options have been added to easily change the order of the meta information to be displayed ('date', 'author', 'categories', 'tags'). The function now has the ability to remove items from display in the theme, e.g. removing author byline. This is done by removing the item from the order array. Text, images or font icons can be added before and after each item.
+* Entry meta is now added via the do_action hooks 'cornerstone_entry_meta_header' and 'cornerstone_entry_meta_footer' instead of directly using cornerstone_entry_meta() in the theme.
+* Added bower.json file to enable updating of CSS/JavaScript dependencies using bower-installer https://github.com/rquadling/bower-installer
+
+= 4.2.4 =
+* Updated to Foundation 6.2.4.
+* Added Schema.org Organisation Logo markup.
+* Fixed unclosed div tag.
+
 = 4.2.3 =
 * Updated to Foundation 6.2.3.
 * Added support for Custom Logo with blog name text fallback to small and medium screens. Removed 'MENU' to leave more space for logo or blog name.

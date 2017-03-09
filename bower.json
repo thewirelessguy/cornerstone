@@ -1,0 +1,33 @@
+{
+  "name": "cornerstone",
+  "ignore": [],
+  "dependencies": {
+    "foundation-sites": "~6.3.1",
+    "motion-ui" : "~1.2.2",
+    "what-input" : "latest"
+  },
+  "install" : {
+    "options" : {
+      "includePackageNameInInstallPath": false
+    },
+    "path" : {
+      "css": "css",
+      "js": "js"
+    },
+    "sources": {
+      "foundation-sites": [
+        "bower_components/foundation-sites/dist/css/**",
+        "bower_components/foundation-sites/dist/js/foundation.js",
+        "bower_components/foundation-sites/dist/js/foundation.min.js"
+      ],
+      "motion-ui": [
+        "bower_components/motion-ui/dist/motion-ui.css",
+        "bower_components/motion-ui/dist/motion-ui.min.css"
+      ],
+      "what-input": [
+          "bower_components/what-input/dist/what-input.min.js", "../what-input.min.js"
+        ]
+    },
+    "ignore" : ["jquery"]
+  }
+}

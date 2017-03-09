@@ -26,14 +26,3 @@ if ( ! function_exists( 'cornerstone_menus' ) ) {
 	}
 }
 add_action( 'init', 'cornerstone_menus' );
-
-
-/**
- * Add a class to the wp_page_menu fallback
- */
-if ( ! function_exists( 'foundation_page_menu_class' ) ) {
-	function foundation_page_menu_class($ulclass) {
-		return preg_replace('/<ul>/', '<ul class="nav-bar">', $ulclass, 1);
-	}
-}
-add_filter('wp_page_menu','foundation_page_menu_class');

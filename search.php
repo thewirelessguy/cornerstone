@@ -2,6 +2,8 @@
 /**
  * The template for displaying Search Results pages
  *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ *
  * @package WordPress
  * @subpackage Cornerstone
  * @since Cornerstone 3.0.0
@@ -10,8 +12,8 @@
 get_header(); ?>
 
 <div class="row">
-	<section id="primary" class="site-content small-12 medium-8 columns">
-		<div id="content" role="main">
+	<section id="primary" class="site-content columns">
+		<main id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -21,7 +23,7 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
 		<?php else : ?>
@@ -39,7 +41,7 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</div>
+		</main>
 	</section>
 
 	<?php get_sidebar(); ?>

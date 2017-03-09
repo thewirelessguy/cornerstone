@@ -29,7 +29,8 @@ function cornerstone_theme_support() {
 	add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
 
 	// Add widget live previews support
-	add_theme_support('widget-customizer');
+	add_theme_support( 'widget-customizer' );
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	// Disable the admin bar, set to true if you want it to be visible.
 	show_admin_bar(FALSE);

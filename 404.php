@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found).
+ * The template for displaying 404 pages (not found).
+ *
+ * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package WordPress
  * @subpackage Cornerstone
@@ -10,24 +12,31 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content small-12 mediums-12 columns">
-		<div id="content" role="main">
+	<div id="primary" class="site-content columns">
+		<main id="content" role="main">
 			<?php do_action( 'cornerstone_before_content' ); ?>
-			<article id="post-0" class="post error404 no-results not-found">
-
+			<section id="post-0" class="error-404 not-found">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'cornerstone' ); ?></h1>
+					<h1 class="entry-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'cornerstone' ); ?></h1>
 				</header>
 
-				<div class="entry-content">
-					<div data-alert class="alert-box">404!</div>
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwelve' ); ?></p>
-					<?php get_search_form(); ?>
-				</div>
+				<div class="page-content">
+					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' ); ?></p>
 
-			</article>
+					<?php
+						get_search_form();
+						the_widget( 'WP_Widget_Recent_Posts' );
+
+						/* translators: %1$s: smiley */
+						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', '_s' ), convert_smilies( ':)' ) ) . '</p>';
+						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+						the_widget( 'WP_Widget_Tag_Cloud' );
+					?>
+
+				</div>
+			</section>
 			<?php do_action( 'cornerstone_after_content' ); ?>
-		</div>
+		</main>
 	</div>
 </div>
 

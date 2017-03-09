@@ -1,12 +1,17 @@
 <?php
 /**
- * The Template for displaying all single posts.
+ * Template Name: Page Template, Right Sidebar
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * Description: Cornerstone loves the no-sidebar look as much as
+ * you do. Use this page template to remove the sidebar from any page.
+ *
+ * Tip: to remove the sidebar from all posts and pages simply remove
+ * any active widgets from the Main Sidebar area, and the sidebar will
+ * disappear everywhere.
  *
  * @package WordPress
  * @subpackage Cornerstone
- * @since Cornerstone 1.0
+ * @since Cornerstone 5.0.0
  */
 
 get_header(); ?>
@@ -17,11 +22,12 @@ get_header(); ?>
 
 			<?php do_action( 'cornerstone_before_content' );
 
-			while (have_posts()) : the_post();
+			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', get_post_format() );
+				// Include the page content template.
+				get_template_part( 'template-parts/content', 'page' );
 
-			    do_action( 'cornerstone_page_before_comments' );
+				do_action( 'cornerstone_page_before_comments' );
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();

@@ -15,7 +15,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div id="primary" class="site-content small-12 medium-8 columns">
+	<div id="primary" class="site-content columns">
 		<div id="content" role="main">
 
 			<?php woocommerce_content(); ?>
