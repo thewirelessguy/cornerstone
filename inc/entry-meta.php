@@ -92,7 +92,7 @@ if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 				$cat_sep = $args['categories']['separator'];
 
 				// Translators: used between list items, there is a space after the comma.
-				$categories_list .= get_the_category_list( empty($cat_sep) ? esc_html__( ', ', 'cornerstone' ) : $cat_sep );
+				$categories_list = get_the_category_list( empty($cat_sep) ? esc_html__( ', ', 'cornerstone' ) : $cat_sep );
 				if ( '' != $categories_list) {
 					$entrymeta .= '<span class="category">' . $categories_prefix . $categories_list . $categories_suffix . '</span> ';
 				}
@@ -101,7 +101,7 @@ if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 				$tags_prefix = cornerstone_entry_meta_prefix($args['tags']['prefix']);
 				$tags_suffix = cornerstone_entry_meta_prefix($args['tags']['suffix']);
 				$tag_sep = empty($args['tags']['separator']) ? __( ', ' , 'cornerstone' ) : $args['tags']['separator'];
-				$tag_list .= get_the_tag_list( $tags_prefix, $tag_sep, $tags_suffix );
+				$tag_list = get_the_tag_list( $tags_prefix, $tag_sep, $tags_suffix );
 				$entrymeta .= '<span class="tags">' . $tag_list . '</span> ';
 			}
 		}
