@@ -20,6 +20,7 @@
 * Completely rewritten cornerstone_entry_meta function. Options have been added to easily change the order of the meta information to be displayed ('date', 'author', 'categories', 'tags'). The function now has the ability to remove items from display in the theme, e.g. removing author byline. This is done by removing the item from the order array. Text, images or font icons can be added before and after each item.
 * Entry meta is now added via the do_action hooks 'cornerstone_entry_meta_header' and 'cornerstone_entry_meta_footer' instead of directly using cornerstone_entry_meta() in the theme.
 * Added bower.json file to enable updating of CSS/JavaScript dependencies using bower-installer https://github.com/rquadling/bower-installer
+* CSS and JavaScript including the main style.css can now be overridden in a child theme by just adding a file with the same name and in the same folder structure. No need to dequeue/enqueue in your child theme. For example, 'foundation.css' in a 'css' folder in a child theme will override the one in the parent theme.
 
 = 4.2.4 =
 * Updated to Foundation 6.2.4.
