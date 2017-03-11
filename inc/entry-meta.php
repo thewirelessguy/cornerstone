@@ -69,7 +69,7 @@ if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 					esc_html( get_the_modified_date( $date_format ) )
 				);
 				$posted_on = sprintf(
-					esc_html_x( 'Posted on %s', 'post date', '_s' ),
+					esc_html_x( 'Posted on %s', 'post date', 'cornerstone' ),
 					'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 				);
 				$entrymeta .= '<span class="posted-on">' . $posted_on . '</span> ';
