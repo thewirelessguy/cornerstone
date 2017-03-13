@@ -79,7 +79,7 @@ if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 				if ($args['author']['archive_link']) {
 					$author = '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>';
 				} else {
-					$author = esc_html( get_the_author() );
+					$author = '<span class="fn">' . esc_html( get_the_author() ) . '</span>';
 				}
 				$byline = sprintf(
 					esc_html_x( '%s', 'post author', 'cornerstone' ),
