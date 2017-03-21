@@ -69,10 +69,10 @@ if ( ! function_exists( 'cornerstone_entry_meta' ) ) :
 					esc_html( get_the_modified_date( $date_format ) )
 				);
 				$posted_on = sprintf(
-					esc_html_x( 'Posted on %s', 'post date', 'cornerstone' ),
+					esc_html_x( '%s', 'post date', 'cornerstone' ),
 					'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 				);
-				$entrymeta .= '<span class="posted-on">' . $posted_on . '</span> ';
+				$entrymeta .= '<span class="posted-on">' . $date_prefix . $posted_on . $date_suffix . '</span> ';
 			} elseif ($items == 'author') {
 				$byline_prefix = cornerstone_entry_meta_prefix($args['author']['prefix']);
 				$byline_suffix = cornerstone_entry_meta_prefix($args['author']['suffix']);
