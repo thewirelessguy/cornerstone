@@ -27,7 +27,7 @@
 
 				do_action( 'cornerstone_before_content' ); ?>
 
-				<div class="row small-up-1 medium-up-2" data-equalizer="grid" data-equalize-on="medium">
+				<div class="row small-up-1 medium-up-2" data-equalizer="grid" data-equalize-on="medium" data-equalize-by-row="true">
 
 					<?php /* Start the Loop */
 					while ( have_posts() ) : the_post(); ?>
