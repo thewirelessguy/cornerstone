@@ -2,9 +2,9 @@
   "name": "cornerstone",
   "ignore": [],
   "dependencies": {
-    "foundation-sites": "~6.3.1",
+    "foundation-sites": "~6.4.1",
     "motion-ui" : "~1.2.2",
-    "what-input" : "latest"
+    "what-input" : "4.1.6"
   },
   "install" : {
     "options" : {

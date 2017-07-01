@@ -11,12 +11,14 @@
 
 get_header(); ?>
 
-<div class="row">
-	<div id="primary" class="site-content columns">
-		<div id="content" role="main">
-			<?php do_action( 'cornerstone_before_content' ); ?>
-			<?php if ( function_exists( 'OrbitSlider' ) ) { OrbitSlider(null, null, null, true); } ?>
-			<?php do_action( 'cornerstone_after_content' ); ?>
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div id="primary" class="cell site-content">
+			<div id="content" role="main">
+				<?php do_action( 'cornerstone_before_content' ); ?>
+				<?php if ( function_exists( 'OrbitSlider' ) ) { OrbitSlider(null, null, null, true); } ?>
+				<?php do_action( 'cornerstone_after_content' ); ?>
+			</div>
 		</div>
 	</div>
 </div>

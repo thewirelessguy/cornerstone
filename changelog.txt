@@ -1,5 +1,11 @@
 == changelog ==
 
+= 5.1.0 =
+* Updated to Foundation 6.4.1.
+* Now using new XY Grid as default.
+* Added search page template
+
+
 = 5.0.0 =
 * Updated to Foundation 6.3.
 * Now using flex grid as default. Changed Foundation classes to use the flex versions.

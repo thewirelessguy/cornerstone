@@ -10,15 +10,15 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('grid-x grid-padding-x'); ?>>
 
 	<?php if ( has_post_thumbnail( get_the_ID() ) ) : ?>
-		<div class="small-12 medium-4 columns">
+		<div class="small-12 medium-4 cell">
 			<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('medium'); ?></a>
 		</div>
 	<?php endif; ?>
 
-	<div class="columns">
+	<div class="auto cell">
 
 		<header class="entry-header">
 			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>

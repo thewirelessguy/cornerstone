@@ -14,17 +14,19 @@
 
 get_header(); ?>
 
-<div class="row">
-	<div id="primary" class="site-content columns">
-		<div id="content" role="main">
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div id="primary" class="auto cell site-content">
+			<div id="content" role="main">
 
-			<?php woocommerce_content(); ?>
+				<?php woocommerce_content(); ?>
 
+			</div>
 		</div>
+
+		<?php get_sidebar(); ?>
+
 	</div>
-
-	<?php get_sidebar(); ?>
-
 </div>
 
 <?php get_footer(); ?>
