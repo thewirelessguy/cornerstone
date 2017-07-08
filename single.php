@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div id="primary" class="auto cell site-content">
-			<main id="content" role="main">
+			<main id="content">
 
 				<?php do_action( 'cornerstone_before_content' );
 

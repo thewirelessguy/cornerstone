@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div id="primary" class="cell site-content">
-			<main id="content" role="main">
+			<main id="content">
 				<?php do_action( 'cornerstone_before_content' ); ?>
 				<section id="post-0" class="error-404 not-found">
 					<header class="entry-header">

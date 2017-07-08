@@ -14,11 +14,11 @@ get_header(); ?>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div id="primary" class="cell site-content">
-			<div id="content" role="main">
+			<main id="content">
 				<?php do_action( 'cornerstone_before_content' ); ?>
 				<?php if ( function_exists( 'OrbitSlider' ) ) { OrbitSlider(null, null, null, true); } ?>
 				<?php do_action( 'cornerstone_after_content' ); ?>
-			</div>
+			</main>
 		</div>
 	</div>
 </div>

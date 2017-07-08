@@ -16,7 +16,7 @@ get_header(); ?>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<section id="primary" class="auto cell site-content">
-			<main id="content" role="main">
+			<main id="content">
 
 			<?php if ( have_posts() ) : ?>
 

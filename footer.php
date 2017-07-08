@@ -10,7 +10,7 @@
  */
 ?>
 	<div id="footer">
-		<footer class="grid-container site-footer" role="contentinfo">
+		<footer class="grid-container site-footer">
 			<?php do_action( 'cornerstone_before_footer' );
 			if (is_active_sidebar('footer_sidebar')) { ?>
 				<div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-4">

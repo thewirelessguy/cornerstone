@@ -13,7 +13,7 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div id="primary" class="cell site-content">
-			<main id="content" role="main">
+			<main id="content">
 
 				<?php if ( have_posts() ) :
 

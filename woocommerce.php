@@ -17,7 +17,7 @@ get_header(); ?>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div id="primary" class="auto cell site-content">
-			<div id="content" role="main">
+			<div id="content">
 
 				<?php woocommerce_content(); ?>
 

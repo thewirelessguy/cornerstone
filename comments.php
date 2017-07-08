@@ -40,7 +40,7 @@ if ( post_password_required() ) {
         </h2><?php // .comments-title ?>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-        <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+        <nav id="comment-nav-above" class="navigation comment-navigation">
             <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'cornerstone' ); ?></h2>
             <div class="nav-links">
 
@@ -61,7 +61,7 @@ if ( post_password_required() ) {
         </ol><?php // .comment-list ?>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-        <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+        <nav id="comment-nav-below" class="navigation comment-navigation">
             <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'cornerstone' ); ?></h2>
             <div class="nav-links">
 
