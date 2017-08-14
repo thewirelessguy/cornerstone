@@ -15,11 +15,11 @@ if ( ! function_exists( 'cornerstone_menus' ) ) {
 
 		register_nav_menus(
 			array(
-				'offCanvasLeft' => __ ( 'Off Canvas Left (mobile)', 'cornerstone'),
-				'offCanvasRight' => __ ( 'Off Canvas Right (mobile)', 'cornerstone'),
-				'header-menu-left' => __( 'Header Menu (left)', 'cornerstone' ),
-				'header-menu-right' => __( 'Header Menu (right)', 'cornerstone' ),
-				'footer-menu' => __( 'Footer Menu', 'cornerstone' )
+				'offCanvasLeft' => esc_html__( 'Off Canvas Left (mobile)', 'cornerstone'),
+				'offCanvasRight' => esc_html__( 'Off Canvas Right (mobile)', 'cornerstone'),
+				'header-menu-left' => esc_html__( 'Header Menu (left)', 'cornerstone' ),
+				'header-menu-right' => esc_html__( 'Header Menu (right)', 'cornerstone' ),
+				'footer-menu' => esc_html__( 'Footer Menu', 'cornerstone' )
 			)
 		);
 
