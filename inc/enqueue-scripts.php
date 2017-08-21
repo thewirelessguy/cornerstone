@@ -16,7 +16,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 
 		wp_enqueue_style(
 			'foundation-style',
-			get_theme_file_uri( 'css/foundation-flex.min.css' ),
+			get_theme_file_uri( 'css/foundation.min.css' ),
 			array(),
 			false,
 			'all'
