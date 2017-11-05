@@ -57,7 +57,7 @@ if ( has_nav_menu( 'offCanvasLeft' ) ) { ?>
 		'theme_location' => 'offCanvasLeft',
 		'container' => false,
 		'depth' => 0,
-		'items_wrap' => '<ul class="vertical menu" data-accordion-menu>%3$s</ul>',
+		'items_wrap' => '<ul class="vertical menu accordion-menu" data-accordion-menu>%3$s</ul>',
 		'fallback_cb' => false,
 		'walker' => new Foundation_Accordion_Menu_Walker(),
 	)); ?>
@@ -71,7 +71,7 @@ if ( has_nav_menu( 'offCanvasRight' ) ) { ?>
 		'theme_location' => 'offCanvasRight',
 		'container' => false,
 		'depth' => 0,
-		'items_wrap' => '<ul class="vertical menu" data-accordion-menu>%3$s</ul>',
+		'items_wrap' => '<ul class="vertical menu accordion-menu" data-accordion-menu>%3$s</ul>',
 		'fallback_cb' => false,
 		'walker' => new Foundation_Accordion_Menu_Walker(),
 	)); ?>

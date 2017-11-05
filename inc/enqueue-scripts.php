@@ -7,7 +7,6 @@
  * @since Cornerstone 3.5.3
  */
 
-
 /**
  * Enqueue CSS
  */
@@ -25,7 +24,7 @@ if ( ! function_exists( 'load_cornerstone_css' ) ) {
 		wp_enqueue_style(
 			'motion-ui-style',
 			get_theme_file_uri( 'css/motion-ui.min.css' ),
-			array('foundation-style'),
+			array( 'foundation-style' ),
 			false,
 			'all'
 		);
@@ -43,7 +42,7 @@ if ( ! function_exists( 'load_cornerstone_main_css' ) ) {
 		wp_enqueue_style(
 			'theme-style',
 			get_theme_file_uri( 'style.css' ),
-			array('foundation-style'),
+			array( 'foundation-style' ),
 			false,
 			'all'
 		);
