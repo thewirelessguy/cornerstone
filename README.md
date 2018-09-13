@@ -3,7 +3,7 @@
 
 Cornerstone is a WordPress starter theme based on the [Zurb Foundation Responsive Framework](http://foundation.zurb.com/). Cornerstone aims to provide a lightweight starter theme that is responsive and SEO friendly that web designers can build great looking websites on.
 
-This version of Cornerstone is based on [ZURB Foundation 6](http://foundation.zurb.com/). For a version of Cornerstone based on Foundation 5 go to https://github.com/thewirelessguy/cornerstone3-foundation5
+This version of Cornerstone is based on [ZURB Foundation 6](http://foundation.zurb.com/).
 
 Cornerstone is not meant to be used as is. This theme is designed to be used as a parent theme to create a Child Theme from. If you’re unsure how to do this follow the guide at (http://codex.wordpress.org/Child_Themes). You can download an example Child Theme at (https://github.com/thewirelessguy/cornerstone-child-theme)
 
@@ -26,4 +26,5 @@ Foundation was made by [ZURB](http://foundation.zurb.com/), a product design com
 
 Stephen is a web designer and Android app developer based in Preston, UK
 + [Twitter @wirelessguyuk](https://twitter.com/wirelessguyuk)
-+ [Website](https://www.thewirelessguy.co.uk)
++ [The Wireless Guy](https://www.thewirelessguy.co.uk)
++ [Blue Box Apps](https://blueboxapps.co.uk)
