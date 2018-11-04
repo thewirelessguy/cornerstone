@@ -1,8 +1,13 @@
 <?php
 /**
- * Template Name: Page Template, Right Sidebar
+ * Template Name: Page Template, No Title
  *
- * Description: Use this page template to add the sidebar to the left of the page.
+ * Description: Cornerstone loves the no-sidebar look as much as
+ * you do. Use this page template to remove the sidebar from any page.
+ *
+ * Tip: to remove the sidebar from all posts and pages simply remove
+ * any active widgets from the Main Sidebar area, and the sidebar will
+ * disappear everywhere.
  *
  * @package WordPress
  * @subpackage Cornerstone
@@ -21,7 +26,7 @@ get_header(); ?>
 				while ( have_posts() ) : the_post();
 
 					// Include the page content template.
-					get_template_part( 'template-parts/content', 'page' );
+					get_template_part( 'template-parts/content', 'page-no-title' );
 
 					do_action( 'cornerstone_page_before_comments' );
 					// If comments are open or we have at least one comment, load up the comment template.
@@ -36,8 +41,6 @@ get_header(); ?>
 
 			</main>
 		</div>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 </div>
