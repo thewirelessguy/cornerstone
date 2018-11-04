@@ -12,6 +12,7 @@
     },
     "path" : {
       "css": "css",
+      "map": "css",
       "js": "js"
     },
     "sources": {
