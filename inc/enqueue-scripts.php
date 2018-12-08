@@ -94,22 +94,7 @@ if ( ! function_exists( 'cornerstone_foundation_init' ) ) {
 }
 
 
-/**
- * Add Responsive Embed to YouTube and Vimeo Embeds
- */
-if ( ! function_exists( 'cornerstone_responsive_embed' ) ) {
-	function cornerstone_responsive_embed() {
-		$inline_js = 'jQuery(function($) {$(\'iframe[src*="youtube.com"], iframe[src*="vimeo.com"], iframe[src*="facebook.com"]\').each(function() {if ( $(this).innerWidth() / $(this).innerHeight() > 1.5 ) {$(this).wrap(\'<div class="responsive-embed widescreen"/>\');} else {$(this).wrap(\'<div class="responsive-embed"/>\');}});});';
-		wp_add_inline_script(
-			'foundation-script',
-			$inline_js,
-			'after');
-	}
-}
-
-
 add_action( 'wp_enqueue_scripts', 'load_cornerstone_css', 0 );
 add_action( 'wp_enqueue_scripts', 'load_cornerstone_main_css', 50 );
 add_action( 'wp_enqueue_scripts', 'load_cornerstone_scripts', 0 );
 add_action( 'wp_enqueue_scripts', 'cornerstone_foundation_init', 9999 );
-add_action( 'wp_enqueue_scripts', 'cornerstone_responsive_embed', 9999 );
