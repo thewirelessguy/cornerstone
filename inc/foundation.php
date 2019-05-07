@@ -93,7 +93,7 @@ function emm_paginate($args = null) {
 		'range' => 3, 'gap' => 3, 'anchor' => 1,
 		'before' => '<ul class="pagination" role="navigation" aria-label="Pagination">', 'after' => '</ul>',
 		'title' => __('<li class="unavailable" aria-disabled="true"></li>'),
-		'nextpage' => __('&raquo;'), 'previouspage' => __('&laquo'),
+		'nextpage' => __('&raquo;'), 'previouspage' => __('&laquo;'),
 		'echo' => 1
 	);
 
