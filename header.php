@@ -22,7 +22,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'cornerstone_after_body' ); ?>
+<?php wp_body_open(); ?>
 
 <?php // off-canvas title bar for 'small' and 'medium' screen ?>
 <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="large">
