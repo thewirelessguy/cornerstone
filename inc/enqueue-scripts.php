@@ -43,21 +43,11 @@ if ( ! function_exists( 'load_cornerstone_main_css' ) ) {
 
 		wp_enqueue_style(
 			'theme-style',
-			get_theme_file_uri( 'style.min.css' ),
+			get_theme_file_uri( 'style.css' ),
 			array( 'foundation-style' ),
 			false,
 			'all'
 		);
-
-		if (!wp_style_is( 'theme-style', 'enqueued' )) {
-			wp_enqueue_style(
-				'theme-style',
-				get_theme_file_uri( 'style.css' ),
-				array( 'foundation-style' ),
-				false,
-				'all'
-			);
-		}
 
 	}
 }
