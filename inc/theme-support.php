@@ -11,7 +11,7 @@ if ( ! function_exists( 'cornerstone_theme_support' ) ) :
 function cornerstone_theme_support() {
 
 	// Add language support
-	load_theme_textdomain( 'Cornerstone', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'cornerstone', get_template_directory() . '/languages' );
 
 	// Add menu support
 	add_theme_support( 'menus' );
@@ -26,7 +26,7 @@ function cornerstone_theme_support() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// Add post formats support: http://codex.wordpress.org/Post_Formats
-	add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
+	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
 
 	// Add widget live previews support
 	add_theme_support( 'widget-customizer' );
@@ -46,7 +46,7 @@ function cornerstone_theme_support() {
 	*/
 	add_theme_support( 'title-tag' );
 
-	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
+	add_theme_support( 'html5', array( 'script', 'style', 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'widgets' ) );
 
 	add_theme_support( 'custom-logo' );
 
