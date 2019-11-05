@@ -17,7 +17,7 @@
 get_header(); ?>
 
 <div class="grid-container full">
-	<div class="grid-x grid-padding-x">
+	<div class="grid-x">
 		<div id="primary" class="auto cell site-content">
 			<main id="content">
 
